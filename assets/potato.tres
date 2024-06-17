@@ -8,6 +8,7 @@ atlas = ExtResource("2_bwc3s")
 
 [resource]
 script = ExtResource("1_c801y")
-name = "土豆"
-sprite = SubResource("AtlasTexture_a38qf")
 interval = 10
+name = "土豆"
+desciption = ""
+sprite = SubResource("AtlasTexture_a38qf")

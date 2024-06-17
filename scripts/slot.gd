@@ -1,7 +1,7 @@
 extends Control
 
-class_name Item
-@export var item: Crop
+class_name Slot
+@export var item: SlotData
 @onready var sprite = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.

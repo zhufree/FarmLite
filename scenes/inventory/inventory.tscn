@@ -1,54 +1,268 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq575hoquefvb"]
+[gd_scene load_steps=6 format=3 uid="uid://bq575hoquefvb"]
 
+[ext_resource type="Texture2D" uid="uid://gbo1xsgl8f4s" path="res://assets/panel.png" id="1_ndhg5"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="1_oouw5"]
-[ext_resource type="Texture2D" uid="uid://fncv6p70w8h0" path="res://assets/InventorySlots.png" id="2_67t6l"]
-[ext_resource type="PackedScene" uid="uid://bd1rex2htxggy" path="res://scenes/inventory/item.tscn" id="3_vjbbh"]
+[ext_resource type="Texture2D" uid="uid://cvkiqes5hives" path="res://assets/slot.png" id="3_3iwtt"]
+[ext_resource type="PackedScene" uid="uid://bd1rex2htxggy" path="res://scenes/inventory/slot.tscn" id="3_vjbbh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nqart"]
-atlas = ExtResource("2_67t6l")
-region = Rect2(476, 0, 75, 75)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ef7nf"]
+texture = ExtResource("1_ndhg5")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
-[node name="Inventory" type="Control"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 67.0
+offset_bottom = 16.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ef7nf")
 script = ExtResource("1_oouw5")
 
-[node name="Inventory" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_nqart")
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -34.0
-offset_right = 34.0
-offset_bottom = 34.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_constants/h_separation = 1
-theme_override_constants/v_separation = 3
+theme_override_constants/v_separation = 2
 columns = 4
 
-[node name="Item" parent="GridContainer" instance=ExtResource("3_vjbbh")]
+[node name="Slot" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
-[node name="Item2" parent="GridContainer" instance=ExtResource("3_vjbbh")]
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot2" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
-[node name="Item3" parent="GridContainer" instance=ExtResource("3_vjbbh")]
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot2"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot3" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
-[node name="Item4" parent="GridContainer" instance=ExtResource("3_vjbbh")]
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot3"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot4" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot4"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot5" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot5"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot6" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot6"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot7" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot7"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot8" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot8"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot9" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot9"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot10" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot10"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot11" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot11"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot12" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot12"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot13" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot13"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot14" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot14"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot15" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot15"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="Slot16" type="Control" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="SlotBg" type="TextureRect" parent="MarginContainer/GridContainer/Slot16"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3iwtt")
+expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="Item" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
+layout_mode = 2
+
+[node name="Item2" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
+layout_mode = 2
+
+[node name="Item5" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
+layout_mode = 2
+
+[node name="Item3" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
+layout_mode = 2
+
+[node name="Item4" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
 layout_mode = 2

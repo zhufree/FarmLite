@@ -1,5 +1,3 @@
-extends Resource
+extends ItemData
 class_name Tool
 
-@export var name: String
-@export var sprite: Texture

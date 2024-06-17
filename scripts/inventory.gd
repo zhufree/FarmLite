@@ -2,17 +2,11 @@ extends Control
 
 
 @onready var grid_container = $GridContainer
-var inventory = []
-var item_scene = preload("res://scenes/inventory/item.tscn")
+@export var inventory: Array[SlotData] = []
+var slot_scene = preload("res://scenes/inventory/slot.tscn")
 
 func _ready():
-	var new_item = item_scene.instantiate()
-	var potato = load("res://assets/potato.tres")
-	new_item.item = potato
-	call_deferred("_add_item_to_grid", new_item)
-
-func _add_item_to_grid(new_item):
-	grid_container.add_child(new_item)
+	pass
 
 func update_items():
 	pass

@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdhk5hfytgd62"]
+[gd_scene load_steps=5 format=3 uid="uid://cdhk5hfytgd62"]
 
 [ext_resource type="PackedScene" uid="uid://bq575hoquefvb" path="res://scenes/inventory/inventory.tscn" id="1_qjv64"]
+[ext_resource type="Script" path="res://scripts/slot_data.gd" id="2_3ni2f"]
+[ext_resource type="Resource" uid="uid://b8ltv5bvqhq1t" path="res://assets/potato.tres" id="2_76gpl"]
+
+[sub_resource type="Resource" id="Resource_dyvnt"]
+script = ExtResource("2_3ni2f")
+SlotItem = ExtResource("2_76gpl")
+count = 0
 
 [node name="Main" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("1_qjv64")]
+inventory = [SubResource("Resource_dyvnt")]
