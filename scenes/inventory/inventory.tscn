@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq575hoquefvb"]
+
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_oouw5"]
+[ext_resource type="Texture2D" uid="uid://fncv6p70w8h0" path="res://assets/InventorySlots.png" id="2_67t6l"]
+[ext_resource type="PackedScene" uid="uid://bd1rex2htxggy" path="res://scenes/inventory/item.tscn" id="3_vjbbh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqart"]
+atlas = ExtResource("2_67t6l")
+region = Rect2(476, 0, 75, 75)
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_oouw5")
+
+[node name="Inventory" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_nqart")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 3
+columns = 4
+
+[node name="Item" parent="GridContainer" instance=ExtResource("3_vjbbh")]
+layout_mode = 2
+
+[node name="Item2" parent="GridContainer" instance=ExtResource("3_vjbbh")]
+layout_mode = 2
+
+[node name="Item3" parent="GridContainer" instance=ExtResource("3_vjbbh")]
+layout_mode = 2
+
+[node name="Item4" parent="GridContainer" instance=ExtResource("3_vjbbh")]
+layout_mode = 2
