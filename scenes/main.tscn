@@ -1,17 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdhk5hfytgd62"]
+[gd_scene load_steps=3 format=3 uid="uid://cdhk5hfytgd62"]
 
 [ext_resource type="PackedScene" uid="uid://bq575hoquefvb" path="res://scenes/inventory/inventory.tscn" id="1_qjv64"]
-[ext_resource type="Script" path="res://scripts/slot_data.gd" id="2_3ni2f"]
-[ext_resource type="Resource" uid="uid://b8ltv5bvqhq1t" path="res://assets/potato.tres" id="2_76gpl"]
-
-[sub_resource type="Resource" id="Resource_dyvnt"]
-script = ExtResource("2_3ni2f")
-SlotItem = ExtResource("2_76gpl")
-count = 0
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_y02yu"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_y02yu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("1_qjv64")]
-inventory = [SubResource("Resource_dyvnt")]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = 97.0
+offset_right = 99.0
+offset_bottom = 128.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 0
+text = "Add potato"
+
+[connection signal="add_item" from="." to="CanvasLayer/Inventory" method="_on_add_item"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

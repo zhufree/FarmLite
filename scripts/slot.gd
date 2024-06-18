@@ -2,14 +2,13 @@ extends Control
 
 class_name Slot
 @export var item: SlotData
-@onready var sprite = $Sprite2D
+@onready var sprite = $CenterContainer/Sprite2D
+@onready var count_label = $Control/CountLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var atlas_texture = item.sprite
-	atlas_texture.region = Rect2(Vector2(16, 16), Vector2(15, 15))  # 提取区域
-
-	sprite.texture = atlas_texture
+	sprite.texture = item.slotItem.icon
+	count_label.text = str(item.count)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

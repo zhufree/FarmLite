@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd1rex2htxggy"]
+[gd_scene load_steps=7 format=3 uid="uid://bd1rex2htxggy"]
 
 [ext_resource type="Script" path="res://scripts/slot.gd" id="2_44or4"]
+[ext_resource type="Script" path="res://scripts/slot_data.gd" id="2_eppc2"]
 [ext_resource type="FontFile" uid="uid://dr5bkuy105ca0" path="res://assets/fonts/PixelOperator8.ttf" id="3_3ec6c"]
-[ext_resource type="Texture2D" uid="uid://c42pja4o6yaa1" path="res://assets/Spring/Potato.png" id="4_ci0wu"]
+[ext_resource type="Resource" uid="uid://b8ltv5bvqhq1t" path="res://assets/potato.tres" id="3_hfw43"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgibg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfn3b"]
-atlas = ExtResource("4_ci0wu")
-region = Rect2(16, 16, 16, 16)
+[sub_resource type="Resource" id="Resource_pthhr"]
+script = ExtResource("2_eppc2")
+slotItem = ExtResource("3_hfw43")
+count = 1
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(20, 20)
@@ -17,6 +19,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xgibg")
 script = ExtResource("2_44or4")
+item = SubResource("Resource_pthhr")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
@@ -24,18 +27,19 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [node name="CountLabel" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.3, 0.3)
+layout_mode = 0
+offset_left = -7.0
+offset_top = -5.0
+offset_right = 21.0
+offset_bottom = 11.0
+scale = Vector2(0.2, 0.2)
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("3_3ec6c")
 text = "1"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
@@ -49,4 +53,3 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
-texture = SubResource("AtlasTexture_jfn3b")

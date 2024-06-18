@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq575hoquefvb"]
+[gd_scene load_steps=5 format=3 uid="uid://bq575hoquefvb"]
 
 [ext_resource type="Texture2D" uid="uid://gbo1xsgl8f4s" path="res://assets/panel.png" id="1_ndhg5"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="1_oouw5"]
 [ext_resource type="Texture2D" uid="uid://cvkiqes5hives" path="res://assets/slot.png" id="3_3iwtt"]
-[ext_resource type="PackedScene" uid="uid://bd1rex2htxggy" path="res://scenes/inventory/slot.tscn" id="3_vjbbh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ef7nf"]
 texture = ExtResource("1_ndhg5")
@@ -251,18 +250,3 @@ layout_mode = 2
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 2
 columns = 4
-
-[node name="Item" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
-layout_mode = 2
-
-[node name="Item2" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
-layout_mode = 2
-
-[node name="Item5" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
-layout_mode = 2
-
-[node name="Item3" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
-layout_mode = 2
-
-[node name="Item4" parent="MarginContainer2/GridContainer" instance=ExtResource("3_vjbbh")]
-layout_mode = 2
