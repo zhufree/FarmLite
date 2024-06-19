@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=6 format=3 uid="uid://dobhrsyhj8vbv"]
+
+[ext_resource type="Script" path="res://scripts/tool.gd" id="1_7mr6o"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0m6m4"]
+load_path = "res://.godot/imported/tools.png-c9e0484bc1f49341110d6fad791adfe0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcnd7"]
+atlas = SubResource("CompressedTexture2D_0m6m4")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vhixk"]
+load_path = "res://.godot/imported/tools.png-c9e0484bc1f49341110d6fad791adfe0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4oq0"]
+atlas = SubResource("CompressedTexture2D_vhixk")
+region = Rect2(0, 64, 64, 16)
+
+[resource]
+script = ExtResource("1_7mr6o")
+name = "镰刀"
+description = "收割作物。"
+icon = SubResource("AtlasTexture_lcnd7")
+sprite = SubResource("AtlasTexture_p4oq0")

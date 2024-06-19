@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=6 format=3 uid="uid://dqipoeacdy8ga"]
+
+[ext_resource type="Texture2D" uid="uid://bdynfdd206v5v" path="res://assets/crops_sprite/Radish.png" id="2_5qbom"]
+[ext_resource type="Script" path="res://scripts/crop.gd" id="2_mtas5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hambd"]
+load_path = "res://.godot/imported/Radish.png-23084979020617722801235f2c3e598e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcpjm"]
+atlas = SubResource("CompressedTexture2D_hambd")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38qf"]
+atlas = ExtResource("2_5qbom")
+
+[resource]
+script = ExtResource("2_mtas5")
+interval = 10
+name = "萝卜"
+description = "一颗萝卜。"
+icon = SubResource("AtlasTexture_lcpjm")
+sprite = SubResource("AtlasTexture_a38qf")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=6 format=3 uid="uid://cnb8cgyp2mih1"]
+
+[ext_resource type="Texture2D" uid="uid://b6dyxaaerb0pg" path="res://assets/crops_sprite/Spinach.png" id="1_3s12p"]
+[ext_resource type="Script" path="res://scripts/crop.gd" id="2_4tntm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3lxv2"]
+load_path = "res://.godot/imported/Spinach.png-8376d45b6ab4d459d979fdd393de9abe.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u6kl"]
+atlas = SubResource("CompressedTexture2D_3lxv2")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38qf"]
+atlas = ExtResource("1_3s12p")
+
+[resource]
+script = ExtResource("2_4tntm")
+interval = 10
+name = "菠菜"
+desciption = "大力水手爱吃的。"
+icon = SubResource("AtlasTexture_1u6kl")
+sprite = SubResource("AtlasTexture_a38qf")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdhk5hfytgd62"]
 
 [ext_resource type="PackedScene" uid="uid://bq575hoquefvb" path="res://scenes/inventory/inventory.tscn" id="1_qjv64"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_y02yu"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_y02yu"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_y02yu")
@@ -20,4 +20,5 @@ theme_override_font_sizes/font_size = 0
 text = "Add potato"
 
 [connection signal="add_item" from="." to="CanvasLayer/Inventory" method="_on_add_item"]
+[connection signal="item_grabbed" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_grabbed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

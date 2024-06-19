@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=6 format=3 uid="uid://dqb4rdksqv8yk"]
+
+[ext_resource type="Script" path="res://scripts/crop.gd" id="2_bqxd2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fjp1w"]
+load_path = "res://.godot/imported/Carrot.png-258a212d7a4bfd7c819af3633eef9ccd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6cyn"]
+atlas = SubResource("CompressedTexture2D_fjp1w")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jvli6"]
+load_path = "res://.godot/imported/Carrot.png-258a212d7a4bfd7c819af3633eef9ccd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyosk"]
+atlas = SubResource("CompressedTexture2D_jvli6")
+
+[resource]
+script = ExtResource("2_bqxd2")
+interval = 10
+name = "胡萝卜"
+description = ""
+icon = SubResource("AtlasTexture_t6cyn")
+sprite = SubResource("AtlasTexture_dyosk")

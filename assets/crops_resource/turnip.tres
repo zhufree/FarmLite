@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=6 format=3 uid="uid://bna05jul0323r"]
+
+[ext_resource type="Texture2D" uid="uid://d2xxmegj15wep" path="res://assets/crops_sprite/Turnip.png" id="1_yp6cv"]
+[ext_resource type="Script" path="res://scripts/crop.gd" id="2_28oaq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0bf8d"]
+load_path = "res://.godot/imported/Turnip.png-13bcaf468ad88a044ee64e34c447dcd4.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1wxv"]
+atlas = SubResource("CompressedTexture2D_0bf8d")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38qf"]
+atlas = ExtResource("1_yp6cv")
+
+[resource]
+script = ExtResource("2_28oaq")
+interval = 10
+name = "芜菁"
+desciption = "一颗芜菁。"
+icon = SubResource("AtlasTexture_t1wxv")
+sprite = SubResource("AtlasTexture_a38qf")

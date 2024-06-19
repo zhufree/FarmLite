@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c42pja4o6yaa1"
-path="res://.godot/imported/Potato.png-b133ebef42755bc6ffd37acad473f0c0.ctex"
+uid="uid://tw0xwqbsv3j7"
+path="res://.godot/imported/Onion.png-6e4b3ad4df97a184956c4d8800fc189f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Spring/Potato.png"
-dest_files=["res://.godot/imported/Potato.png-b133ebef42755bc6ffd37acad473f0c0.ctex"]
+source_file="res://assets/crops_sprite/Onion.png"
+dest_files=["res://.godot/imported/Onion.png-6e4b3ad4df97a184956c4d8800fc189f.ctex"]
 
 [params]
 

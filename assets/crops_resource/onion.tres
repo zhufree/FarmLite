@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=6 format=3 uid="uid://dveuymree2d6o"]
+
+[ext_resource type="Texture2D" uid="uid://tw0xwqbsv3j7" path="res://assets/crops_sprite/Onion.png" id="1_ch4mu"]
+[ext_resource type="Script" path="res://scripts/crop.gd" id="2_57xb2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8imlu"]
+load_path = "res://.godot/imported/Onion.png-6e4b3ad4df97a184956c4d8800fc189f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlgst"]
+atlas = SubResource("CompressedTexture2D_8imlu")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38qf"]
+atlas = ExtResource("1_ch4mu")
+
+[resource]
+script = ExtResource("2_57xb2")
+interval = 10
+name = "洋葱"
+description = "一颗洋葱。"
+icon = SubResource("AtlasTexture_wlgst")
+sprite = SubResource("AtlasTexture_a38qf")

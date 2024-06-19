@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=6 format=3 uid="uid://dsgmw16jnoepc"]
+
+[ext_resource type="Script" path="res://scripts/tool.gd" id="1_6tytp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6seka"]
+load_path = "res://.godot/imported/tools.png-c9e0484bc1f49341110d6fad791adfe0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2p1e"]
+atlas = SubResource("CompressedTexture2D_6seka")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ganeu"]
+load_path = "res://.godot/imported/tools.png-c9e0484bc1f49341110d6fad791adfe0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5slop"]
+atlas = SubResource("CompressedTexture2D_ganeu")
+region = Rect2(0, 32, 64, 16)
+
+[resource]
+script = ExtResource("1_6tytp")
+name = "锄头"
+description = "一把普通的锄头。"
+icon = SubResource("AtlasTexture_e2p1e")
+sprite = SubResource("AtlasTexture_5slop")

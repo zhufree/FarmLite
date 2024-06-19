@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=6 format=3 uid="uid://b65s1758yf151"]
+
+[ext_resource type="Script" path="res://scripts/tool.gd" id="1_qakd7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ma6lc"]
+load_path = "res://.godot/imported/tools.png-c9e0484bc1f49341110d6fad791adfe0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpo4v"]
+atlas = SubResource("CompressedTexture2D_ma6lc")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gpnqk"]
+load_path = "res://.godot/imported/tools.png-c9e0484bc1f49341110d6fad791adfe0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eemko"]
+atlas = SubResource("CompressedTexture2D_gpnqk")
+region = Rect2(0, 80, 64, 16)
+
+[resource]
+script = ExtResource("1_qakd7")
+name = "水壶"
+description = "可以用来浇水。"
+icon = SubResource("AtlasTexture_xpo4v")
+sprite = SubResource("AtlasTexture_eemko")

@@ -1,43 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd1rex2htxggy"]
+[gd_scene load_steps=4 format=3 uid="uid://bd1rex2htxggy"]
 
 [ext_resource type="Script" path="res://scripts/slot.gd" id="2_44or4"]
-[ext_resource type="Script" path="res://scripts/slot_data.gd" id="2_eppc2"]
 [ext_resource type="FontFile" uid="uid://dr5bkuy105ca0" path="res://assets/fonts/PixelOperator8.ttf" id="3_3ec6c"]
-[ext_resource type="Resource" uid="uid://b8ltv5bvqhq1t" path="res://assets/potato.tres" id="3_hfw43"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgibg"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4a33"]
+bg_color = Color(0.344767, 0.609667, 0.930769, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="Resource" id="Resource_pthhr"]
-script = ExtResource("2_eppc2")
-slotItem = ExtResource("3_hfw43")
-count = 1
-
-[node name="Slot" type="PanelContainer"]
+[node name="Slot" type="Control"]
+z_index = 5
 custom_minimum_size = Vector2(20, 20)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 20.0
 offset_bottom = 20.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_xgibg")
 script = ExtResource("2_44or4")
-item = SubResource("Resource_pthhr")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 23.0
+offset_right = 20.0
+offset_bottom = 23.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [node name="CountLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = -7.0
-offset_top = -5.0
-offset_right = 21.0
-offset_bottom = 11.0
+offset_left = -8.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 9.0
 scale = Vector2(0.2, 0.2)
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("3_3ec6c")
-text = "1"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -47,9 +49,77 @@ position = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
+[node name="DescContainer" type="PanelContainer" parent="."]
+visible = false
+z_index = 9
+layout_mode = 2
+offset_left = 23.0
+offset_top = 5.0
+offset_right = 79.0
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_styles/panel = SubResource("StyleBoxFlat_y4a33")
+
+[node name="MarginContainer" type="MarginContainer" parent="DescContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="DescLabel" type="Label" parent="DescContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3ec6c")
+theme_override_font_sizes/font_size = 0
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OperationContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 53.0
+offset_bottom = 51.0
+scale = Vector2(0.3, 0.3)
+
+[node name="MarginContainer" type="MarginContainer" parent="OperationContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OperationContainer/MarginContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="UseButton" type="Button" parent="OperationContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3ec6c")
+text = "使用"
+
+[node name="DropButton" type="Button" parent="OperationContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3ec6c")
+text = "丢弃"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="OperationContainer/MarginContainer/VBoxContainer/DropButton" to="." method="_on_drop_button_pressed"]

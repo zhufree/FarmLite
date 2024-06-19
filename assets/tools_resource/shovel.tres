@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=6 format=3 uid="uid://ccvnchdnn5a6"]
+
+[ext_resource type="Script" path="res://scripts/tool.gd" id="1_l3pur"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_etp3t"]
+load_path = "res://.godot/imported/tools.png-c9e0484bc1f49341110d6fad791adfe0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efuar"]
+atlas = SubResource("CompressedTexture2D_etp3t")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_00yno"]
+load_path = "res://.godot/imported/tools.png-c9e0484bc1f49341110d6fad791adfe0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uwxr"]
+atlas = SubResource("CompressedTexture2D_00yno")
+region = Rect2(0, 16, 64, 16)
+
+[resource]
+script = ExtResource("1_l3pur")
+name = "铲子"
+description = "挖地专用。"
+icon = SubResource("AtlasTexture_efuar")
+sprite = SubResource("AtlasTexture_3uwxr")
