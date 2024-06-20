@@ -20,5 +20,6 @@ theme_override_font_sizes/font_size = 0
 text = "Add potato"
 
 [connection signal="add_item" from="." to="CanvasLayer/Inventory" method="_on_add_item"]
+[connection signal="item_exchanged" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_exchanged"]
 [connection signal="item_grabbed" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_grabbed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

@@ -45,9 +45,14 @@ func load_resources_from_folder(folder_path: String):
 		print("An error occurred when trying to access the path.")
 
 var slot_scene = preload("res://scenes/inventory/slot.tscn")
-func _on_inventory_item_grabbed(item):
+func _on_inventory_item_grabbed(item: SlotData):
 	grab_slot = slot_scene.instantiate()
 	grab_slot.z_index = 99
 	grab_slot.is_grab = true
-	grab_slot.item = item
+	grab_slot.slotData = item
 	canvas_layer.add_child(grab_slot)
+
+
+func _on_inventory_item_exchanged():
+	grab_slot.queue_free()
+	grab_slot = null
