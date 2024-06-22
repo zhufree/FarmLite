@@ -31,9 +31,9 @@ func _recalculate_time():
 	var current_time = Time.get_datetime_dict_from_system()
 	var current_time_unix = Time.get_unix_time_from_datetime_dict(current_time)
 	var period = current_time_unix - last_record_system_time
-	global_time_unix_float += period * 60
+	global_time_unix_float += period * CYCLE_MINUTE
 
 func time_to_string() -> String:
-	return str(global_time["month"])+"月"+\
-			str(global_time["day"])+"日 "+\
-			Time.get_time_string_from_unix_time(float(global_time_unix_float)).substr(0,5)
+	return str(global_time["month"])+"-"+\
+			str(global_time["day"])+"  "+\
+			Time.get_time_string_from_unix_time(int(global_time_unix_float)).substr(0,5)

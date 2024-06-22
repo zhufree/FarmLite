@@ -6,11 +6,13 @@
 [node name="Land" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(0.7, 0.7)
 script = ExtResource("1_e148x")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 16.0
+offset_bottom = 16.0
 texture = ExtResource("1_38gpl")
+stretch_mode = 1
+
+[connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]
