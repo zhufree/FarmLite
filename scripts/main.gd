@@ -14,12 +14,13 @@ func _ready():
 	load_resources_from_folder("res://assets/crops_resource/")
 	load_resources_from_folder("res://assets/tools_resource/")
 	_init_lands()#初始化土地
-	GlobalTime.tick_minute.connect(_on_tick_minute)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if grab_slot:
 		grab_slot.position = get_global_mouse_position() - Vector2(8, 8)
-
+	#更新时钟
+	_refresh_clock()
 
 func _on_button_pressed():
 	# add a random item
@@ -65,6 +66,9 @@ func _on_inventory_item_exchanged():
 func _init_lands():
 	pass
 
-func _on_tick_minute():
+
+func _refresh_clock():
 	time_label.text = GlobalTime.time_to_string()
-	canvas_modulate.color = TIME_GRADIENT.sample(float(GlobalTime.global_time["hour"]) / GlobalTime.CYCLE_DAY)
+	var hour_minute:float = GlobalTime.global_time["hour"] +\
+			 float(GlobalTime.global_time["minute"]) / GlobalTime.CYCLE_HOUR
+	canvas_modulate.color = TIME_GRADIENT.sample(hour_minute / GlobalTime.CYCLE_DAY)

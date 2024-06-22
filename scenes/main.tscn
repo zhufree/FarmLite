@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y02yu"]
 [ext_resource type="FontFile" uid="uid://co2fabwxqbnpf" path="res://assets/fonts/zpix.ttf" id="3_2im24"]
 [ext_resource type="Texture2D" uid="uid://dbdgyhdfbmheu" path="res://assets/background/tileset - simplified.png" id="3_gmwoo"]
-[ext_resource type="PackedScene" uid="uid://cqxos43pbp7g2" path="res://scenes/land.tscn" id="3_tr0px"]
+[ext_resource type="PackedScene" uid="uid://cf50fbv8exodr" path="res://scenes/land.tscn" id="3_tr0px"]
 [ext_resource type="Texture2D" uid="uid://vs4kirmmjgpu" path="res://assets/background/props.png" id="4_b4ux5"]
 [ext_resource type="PackedScene" uid="uid://cpmdcth0v3unj" path="res://scenes/time_control_button.tscn" id="4_mk85d"]
 [ext_resource type="Texture2D" uid="uid://1pmpeexhpj5l" path="res://assets/UI.png" id="4_tq13w"]
@@ -843,7 +843,10 @@ speed = 60
 [node name="Land" parent="." instance=ExtResource("3_tr0px")]
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(151, 72)
+offset_left = 133.0
+offset_top = 65.0
+offset_right = 133.0
+offset_bottom = 65.0
 
 [node name="LandMap" type="TileMap" parent="."]
 y_sort_enabled = true

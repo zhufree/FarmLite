@@ -23,12 +23,10 @@ func _ready():
 	
 
 func _process(delta):
-	var minute = global_time["minute"]
 	if !paused:
 		global_time_unix_float += delta * speed * CYCLE_MINUTE
 		global_time = Time.get_datetime_dict_from_unix_time(int(global_time_unix_float))
-	if global_time["minute"] != minute:
-		tick_minute.emit()
+
 func _recalculate_time():
 	var current_time = Time.get_datetime_dict_from_system()
 	var current_time_unix = Time.get_unix_time_from_datetime_dict(current_time)
