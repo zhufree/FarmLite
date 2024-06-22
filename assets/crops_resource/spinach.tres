@@ -17,6 +17,6 @@ atlas = ExtResource("1_3s12p")
 script = ExtResource("2_4tntm")
 interval = 10
 name = "菠菜"
-desciption = "大力水手爱吃的。"
+description = ""
 icon = SubResource("AtlasTexture_1u6kl")
 sprite = SubResource("AtlasTexture_a38qf")

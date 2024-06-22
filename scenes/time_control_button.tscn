@@ -1,0 +1,31 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpmdcth0v3unj"]
+
+[ext_resource type="Texture2D" uid="uid://1pmpeexhpj5l" path="res://assets/UI.png" id="1_jkj01"]
+[ext_resource type="Script" path="res://scripts/time_control_button.gd" id="2_j7ouc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fwu4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpq15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_008hu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvxlb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3nsd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr3xr"]
+atlas = ExtResource("1_jkj01")
+region = Rect2(976, 128, 16, 16)
+
+[node name="Pause" type="Button"]
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8fwu4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kpq15")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_008hu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tvxlb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y3nsd")
+icon = SubResource("AtlasTexture_fr3xr")
+flat = true
+vertical_icon_alignment = 0
+script = ExtResource("2_j7ouc")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

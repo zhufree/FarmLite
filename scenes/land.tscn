@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqxos43pbp7g2"]
+
+[ext_resource type="Texture2D" uid="uid://b6ujxh23v4kna" path="res://assets/land.png" id="1_3n7j3"]
+[ext_resource type="Texture2D" uid="uid://vs4kirmmjgpu" path="res://assets/background/props.png" id="1_fc8hk"]
+[ext_resource type="SpriteFrames" uid="uid://b4dcq8n2s2ceb" path="res://assets/crop_frames/carrot_frames.tres" id="2_x6n1v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtpye"]
+atlas = ExtResource("1_fc8hk")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yid0j"]
+atlas = ExtResource("1_3n7j3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oy44"]
+atlas = ExtResource("1_3n7j3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rayaf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtpye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yid0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oy44")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Land" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_rayaf")
+
+[node name="Crop" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_x6n1v")

@@ -1,17 +1,20 @@
 extends Node2D
+const TIME_GRADIENT = preload("res://assets/time_gradient.tres")
 
 signal add_item(item: ItemData, count: int)
 var resources = {}
 var grab_slot = null
 
 @onready var canvas_layer = $CanvasLayer
+@onready var time_label = %TimeLabel
+@onready var canvas_modulate = %CanvasModulate
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_resources_from_folder("res://assets/crops_resource/")
 	load_resources_from_folder("res://assets/tools_resource/")
-
-
+	_init_lands()#初始化土地
+	GlobalTime.tick_minute.connect(_on_tick_minute)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if grab_slot:
@@ -56,3 +59,12 @@ func _on_inventory_item_grabbed(item: SlotData):
 func _on_inventory_item_exchanged():
 	grab_slot.queue_free()
 	grab_slot = null
+
+
+
+func _init_lands():
+	pass
+
+func _on_tick_minute():
+	time_label.text = GlobalTime.time_to_string()
+	canvas_modulate.color = TIME_GRADIENT.sample(float(GlobalTime.global_time["hour"]) / GlobalTime.CYCLE_DAY)
