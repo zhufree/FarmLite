@@ -1,0 +1,36 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://2xj170gh4t4t"]
+
+[ext_resource type="Texture2D" uid="uid://b4hkoan8w2371" path="res://assets/seed.png" id="1_w54b1"]
+[ext_resource type="Texture2D" uid="uid://bdynfdd206v5v" path="res://assets/crops_sprite/Radish.png" id="2_u0hvv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li8ba"]
+atlas = ExtResource("2_u0hvv")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfegw"]
+atlas = ExtResource("2_u0hvv")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nr35"]
+atlas = ExtResource("2_u0hvv")
+region = Rect2(64, 0, 16, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w54b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li8ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfegw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nr35")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

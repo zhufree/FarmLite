@@ -1,0 +1,36 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dbfsegxgemefc"]
+
+[ext_resource type="Texture2D" uid="uid://b4hkoan8w2371" path="res://assets/seed.png" id="1_8h1y7"]
+[ext_resource type="Texture2D" uid="uid://tw0xwqbsv3j7" path="res://assets/crops_sprite/Onion.png" id="2_rpn0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3et1k"]
+atlas = ExtResource("2_rpn0e")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nofvc"]
+atlas = ExtResource("2_rpn0e")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obdd0"]
+atlas = ExtResource("2_rpn0e")
+region = Rect2(64, 0, 16, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8h1y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3et1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nofvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obdd0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

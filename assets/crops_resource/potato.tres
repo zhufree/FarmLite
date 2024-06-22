@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Crop" load_steps=6 format=3 uid="uid://b8ltv5bvqhq1t"]
+[gd_resource type="Resource" script_class="Crop" load_steps=7 format=3 uid="uid://b8ltv5bvqhq1t"]
 
 [ext_resource type="Script" path="res://scripts/crop.gd" id="1_37yd2"]
+[ext_resource type="SpriteFrames" uid="uid://d1ruoqdlcoa7n" path="res://assets/crop_frames/potato_frames.tres" id="1_a85vv"]
 [ext_resource type="Texture2D" uid="uid://c42pja4o6yaa1" path="res://assets/crops_sprite/Potato.png" id="2_m4300"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5jpcc"]
@@ -10,13 +11,14 @@ load_path = "res://.godot/imported/Potato.png-3c3a1118f06a20cc8edf023f7ba8ff76.c
 atlas = SubResource("CompressedTexture2D_5jpcc")
 region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a38qf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvpin"]
 atlas = ExtResource("2_m4300")
 
 [resource]
 script = ExtResource("1_37yd2")
-interval = 10
+interval = 3
+frame = ExtResource("1_a85vv")
 name = "土豆"
 description = "土豆门！"
 icon = SubResource("AtlasTexture_f4j5b")
-sprite = SubResource("AtlasTexture_a38qf")
+sprite = SubResource("AtlasTexture_bvpin")

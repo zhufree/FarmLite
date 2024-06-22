@@ -1,0 +1,36 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dd4v4wp8umvyn"]
+
+[ext_resource type="Texture2D" uid="uid://b4hkoan8w2371" path="res://assets/seed.png" id="1_l3hcw"]
+[ext_resource type="Texture2D" uid="uid://b6dyxaaerb0pg" path="res://assets/crops_sprite/Spinach.png" id="2_jg027"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbtob"]
+atlas = ExtResource("2_jg027")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fth17"]
+atlas = ExtResource("2_jg027")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp0ki"]
+atlas = ExtResource("2_jg027")
+region = Rect2(64, 0, 16, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l3hcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbtob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fth17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp0ki")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

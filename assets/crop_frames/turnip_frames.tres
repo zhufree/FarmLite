@@ -1,0 +1,36 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://docx3oq12iibb"]
+
+[ext_resource type="Texture2D" uid="uid://b4hkoan8w2371" path="res://assets/seed.png" id="1_jsl1p"]
+[ext_resource type="Texture2D" uid="uid://d2xxmegj15wep" path="res://assets/crops_sprite/Turnip.png" id="2_b2hnt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lyau"]
+atlas = ExtResource("2_b2hnt")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odpmd"]
+atlas = ExtResource("2_b2hnt")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee6j5"]
+atlas = ExtResource("2_b2hnt")
+region = Rect2(64, 0, 16, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jsl1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lyau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odpmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee6j5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

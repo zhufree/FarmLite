@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Crop" load_steps=6 format=3 uid="uid://cnb8cgyp2mih1"]
+[gd_resource type="Resource" script_class="Crop" load_steps=7 format=3 uid="uid://cnb8cgyp2mih1"]
 
 [ext_resource type="Texture2D" uid="uid://b6dyxaaerb0pg" path="res://assets/crops_sprite/Spinach.png" id="1_3s12p"]
+[ext_resource type="SpriteFrames" uid="uid://dd4v4wp8umvyn" path="res://assets/crop_frames/spinach_frames.tres" id="1_6vmut"]
 [ext_resource type="Script" path="res://scripts/crop.gd" id="2_4tntm"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3lxv2"]
@@ -10,13 +11,14 @@ load_path = "res://.godot/imported/Spinach.png-8376d45b6ab4d459d979fdd393de9abe.
 atlas = SubResource("CompressedTexture2D_3lxv2")
 region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a38qf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlp02"]
 atlas = ExtResource("1_3s12p")
 
 [resource]
 script = ExtResource("2_4tntm")
-interval = 10
+interval = 1
+frame = ExtResource("1_6vmut")
 name = "菠菜"
 description = ""
 icon = SubResource("AtlasTexture_1u6kl")
-sprite = SubResource("AtlasTexture_a38qf")
+sprite = SubResource("AtlasTexture_mlp02")

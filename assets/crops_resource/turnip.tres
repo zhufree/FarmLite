@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Crop" load_steps=6 format=3 uid="uid://bna05jul0323r"]
+[gd_resource type="Resource" script_class="Crop" load_steps=7 format=3 uid="uid://bna05jul0323r"]
 
+[ext_resource type="SpriteFrames" uid="uid://docx3oq12iibb" path="res://assets/crop_frames/turnip_frames.tres" id="1_wiws5"]
 [ext_resource type="Texture2D" uid="uid://d2xxmegj15wep" path="res://assets/crops_sprite/Turnip.png" id="1_yp6cv"]
 [ext_resource type="Script" path="res://scripts/crop.gd" id="2_28oaq"]
 
@@ -10,13 +11,14 @@ load_path = "res://.godot/imported/Turnip.png-13bcaf468ad88a044ee64e34c447dcd4.c
 atlas = SubResource("CompressedTexture2D_0bf8d")
 region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a38qf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ftuq"]
 atlas = ExtResource("1_yp6cv")
 
 [resource]
 script = ExtResource("2_28oaq")
-interval = 10
+interval = 2
+frame = ExtResource("1_wiws5")
 name = "芜菁"
-description = ""
+description = "芜菁芜菁"
 icon = SubResource("AtlasTexture_t1wxv")
-sprite = SubResource("AtlasTexture_a38qf")
+sprite = SubResource("AtlasTexture_3ftuq")

@@ -1,0 +1,36 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://d1ruoqdlcoa7n"]
+
+[ext_resource type="Texture2D" uid="uid://b4hkoan8w2371" path="res://assets/seed.png" id="1_s4l70"]
+[ext_resource type="Texture2D" uid="uid://c42pja4o6yaa1" path="res://assets/crops_sprite/Potato.png" id="2_fww1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eanh2"]
+atlas = ExtResource("2_fww1s")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n47l7"]
+atlas = ExtResource("2_fww1s")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akdbk"]
+atlas = ExtResource("2_fww1s")
+region = Rect2(64, 0, 16, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s4l70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eanh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n47l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akdbk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

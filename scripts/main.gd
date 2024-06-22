@@ -8,6 +8,7 @@ var grab_slot = null
 @onready var canvas_layer = $CanvasLayer
 @onready var time_label = %TimeLabel
 @onready var canvas_modulate = %CanvasModulate
+@onready var point_light_2d = %PointLight2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -72,3 +73,8 @@ func _refresh_clock():
 	var hour_minute:float = GlobalTime.global_time["hour"] +\
 			 float(GlobalTime.global_time["minute"]) / GlobalTime.CYCLE_HOUR
 	canvas_modulate.color = TIME_GRADIENT.sample(hour_minute / GlobalTime.CYCLE_DAY)
+	if hour_minute < 5 or hour_minute > 19:
+		point_light_2d.position = get_global_mouse_position()
+		point_light_2d.show()
+	else:
+		point_light_2d.hide()

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://m4wo5c46bnms"]
+
+[ext_resource type="Script" path="res://scripts/crop_scene.gd" id="1_lcikc"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g0wru"]
+polygon = PackedVector2Array(-3, 0, 0, -3, 3, 0, 0, 3)
+
+[node name="Crop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_lcikc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
+stretch_mode = 1
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8, 8)
+occluder = SubResource("OccluderPolygon2D_g0wru")

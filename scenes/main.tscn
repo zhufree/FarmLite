@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdhk5hfytgd62"]
+[gd_scene load_steps=17 format=3 uid="uid://cdhk5hfytgd62"]
 
 [ext_resource type="PackedScene" uid="uid://bq575hoquefvb" path="res://scenes/inventory/inventory.tscn" id="1_qjv64"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y02yu"]
@@ -601,6 +601,17 @@ sources/0 = SubResource("TileSetAtlasSource_qgkgn")
 
 [sub_resource type="Environment" id="Environment_5nhmd"]
 
+[sub_resource type="Gradient" id="Gradient_aft36"]
+colors = PackedColorArray(0.573178, 0.294828, 0.236503, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghhci"]
+gradient = SubResource("Gradient_aft36")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_y02yu")
 
@@ -649,7 +660,7 @@ speed = 1
 [node name="60x" parent="CanvasLayer/TimeControl" instance=ExtResource("4_mk85d")]
 layout_mode = 2
 icon = SubResource("AtlasTexture_d7xuh")
-speed = 60
+speed = 120
 
 [node name="Land" parent="." instance=ExtResource("3_tr0px")]
 z_as_relative = false
@@ -687,6 +698,14 @@ environment = SubResource("Environment_5nhmd")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 unique_name_in_owner = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(124, 105)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_ghhci")
 
 [connection signal="add_item" from="." to="CanvasLayer/Inventory" method="_on_add_item"]
 [connection signal="item_exchanged" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_exchanged"]

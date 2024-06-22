@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Crop" load_steps=6 format=3 uid="uid://dqb4rdksqv8yk"]
+[gd_resource type="Resource" script_class="Crop" load_steps=7 format=3 uid="uid://dqb4rdksqv8yk"]
 
+[ext_resource type="SpriteFrames" uid="uid://b4dcq8n2s2ceb" path="res://assets/crop_frames/carrot_frames.tres" id="1_r6bnb"]
 [ext_resource type="Script" path="res://scripts/crop.gd" id="2_bqxd2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fjp1w"]
@@ -17,7 +18,8 @@ atlas = SubResource("CompressedTexture2D_jvli6")
 
 [resource]
 script = ExtResource("2_bqxd2")
-interval = 10
+interval = 2
+frame = ExtResource("1_r6bnb")
 name = "胡萝卜"
 description = ""
 icon = SubResource("AtlasTexture_t6cyn")
