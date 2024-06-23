@@ -89,20 +89,21 @@ count = -1
 script = ExtResource("3_3d6up")
 crop = ExtResource("2_xl1v2")
 current_state = 4
-land_last_record_exp = 51
-crop_last_record_exp = 145711
+land_last_record_exp = 28080
+crop_last_record_exp = 2465143
 position = Vector2(135, 71)
 
 [sub_resource type="Resource" id="Resource_ktbdi"]
 script = ExtResource("3_3d6up")
-current_state = 1
-land_last_record_exp = 22080
-crop_last_record_exp = 0
+crop = ExtResource("2_xl1v2")
+current_state = 4
+land_last_record_exp = 27959
+crop_last_record_exp = 55918
 position = Vector2(99, 71)
 
 [resource]
 script = ExtResource("4_g7kjk")
-last_record_system_time_unix = 1719153893
-last_record_global_time_unix = 126925
+last_record_system_time_unix = 1719189063
+last_record_global_time_unix = 2332674
 inventory = Array[ExtResource("1_4csy5")]([SubResource("Resource_6sfeu"), SubResource("Resource_imhhx"), SubResource("Resource_i3s54"), SubResource("Resource_s6kp2"), SubResource("Resource_4vn4w"), SubResource("Resource_xb2iy"), SubResource("Resource_n7lou"), SubResource("Resource_0k2p8"), SubResource("Resource_2x25j"), SubResource("Resource_ej7ka"), SubResource("Resource_vrekf"), SubResource("Resource_yy73e"), SubResource("Resource_6c61a"), SubResource("Resource_2eo2o"), SubResource("Resource_u5nw0"), SubResource("Resource_84os2")])
 lands = Array[ExtResource("3_3d6up")]([SubResource("Resource_vsge0"), SubResource("Resource_ktbdi")])

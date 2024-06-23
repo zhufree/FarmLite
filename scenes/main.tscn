@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdhk5hfytgd62"]
+[gd_scene load_steps=19 format=3 uid="uid://cdhk5hfytgd62"]
 
 [ext_resource type="PackedScene" uid="uid://bq575hoquefvb" path="res://scenes/inventory/inventory.tscn" id="1_qjv64"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y02yu"]
@@ -7,6 +7,30 @@
 [ext_resource type="PackedScene" uid="uid://cpmdcth0v3unj" path="res://scenes/time_control_button.tscn" id="4_mk85d"]
 [ext_resource type="Texture2D" uid="uid://1pmpeexhpj5l" path="res://assets/UI.png" id="4_tq13w"]
 [ext_resource type="Texture2D" uid="uid://dyihvrq1hjovr" path="res://assets/background/tileset - simplified transparent.png" id="7_7byke"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ooekl"]
+texture = ExtResource("4_tq13w")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(193, 65, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_417eb"]
+texture = ExtResource("4_tq13w")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(257, 65, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7uimw"]
+texture = ExtResource("4_tq13w")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(176, 272, 16, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxxop"]
 atlas = ExtResource("4_tq13w")
@@ -626,10 +650,15 @@ offset_bottom = 119.0
 [node name="SaveButton" type="Button" parent="CanvasLayer"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 68.0
-offset_bottom = 28.0
-scale = Vector2(0.5, 0.5)
+offset_right = 42.0
+offset_bottom = 22.0
 theme_override_fonts/font = ExtResource("3_pvce2")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_ooekl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ooekl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_417eb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ooekl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7uimw")
 text = "Save"
 
 [node name="TestButton" type="Button" parent="CanvasLayer"]
