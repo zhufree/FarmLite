@@ -11,10 +11,10 @@ enum LandState {
 const CROP = preload("res://scenes/crop.tscn")
 const MAX_EXP = 86400#土的干涸时间是游戏时间1天
 
+var land_data = LandData.new()
 var crop_node:CropNode = null
-var current_state = LandState.WEED
+var current_state:LandState = LandState.WEED
 var exp_point:int = 0
-var last_record_exp:int#TODO:和加载存档有关
 var planted:bool = false
 
 @onready var texture_rect = $TextureRect
@@ -23,6 +23,7 @@ func _ready():
 	GlobalTime.recalculate.connect(_recalculate)
 	
 func change_state(new_state):
+	exp_point = 0 #附带了一个浇水
 	current_state = new_state
 	update_tile()
 
@@ -69,29 +70,43 @@ func _click_on_land():
 			#如果需要种植就调用_plant(crop_data:Crop)就好，把持有物传进去
 			change_state(LandState.WATERED)#这里目前只浇水，为了测试方便
 		LandState.WATERED:
-			if crop_node:
-				exp_point = 0#如果种植了就重新浇水
-			else:
+			exp_point = 0#浇水
+			if !crop_node:
 				_plant(load("res://assets/crops_resource/spinach.tres"))
 				#TODO:没种植就种植一个菠菜先，这里应该根据选的种子不同种植不同的作物
 
 func _dry():
 	change_state(LandState.DRY)
-	exp_point = 0
 
 func _plant(crop_data:Crop):
 	#调用这个种植作物
+	land_data.crop = crop_data
 	crop_node = CROP.instantiate()
 	crop_node.crop = crop_data
 	add_child(crop_node)
-	
+
+func _init_land():
+	var index = get_parent().get_children().find(self)
+	land_data = SaveManager.save_data.lands[index]
+	change_state(land_data.current_state)
+	if land_data.crop:
+		_plant(land_data.crop)
+
 func _recalculate(period):
-	exp_point = last_record_exp + period
+	_init_land()
+	exp_point = land_data.land_last_record_exp + period
 	var exp_overflow = exp_point - MAX_EXP
 	if exp_overflow >= 0:
 		_dry()
-		if crop_node:#如果种植了
-			crop_node.recalculate(period-exp_overflow,exp_overflow)#运进去2倍经验的时间和1倍经验的时间
 	else:
 		exp_overflow = 0#初始化一下，不做也行
-		
+	if crop_node:#如果种植了
+		crop_node.last_record_exp = land_data.crop_last_record_exp
+		crop_node.recalculate(period-exp_overflow,exp_overflow)#运进去2倍经验的时间和1倍经验的时间
+
+func save():
+	land_data.position = position
+	land_data.current_state = current_state
+	land_data.land_last_record_exp = exp_point
+	if crop_node:
+		land_data.crop_last_record_exp = crop_node.exp_point

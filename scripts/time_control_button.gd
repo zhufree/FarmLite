@@ -4,6 +4,6 @@ extends Button
 func _on_pressed():
 	if speed != 0:
 		GlobalTime.paused = false
-		GlobalTime.speed = speed
 	else:
 		GlobalTime.paused = true
+	GlobalTime.speed = speed

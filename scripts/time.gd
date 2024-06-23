@@ -13,17 +13,18 @@ var global_time_unix_float:float = 0.0
 var paused:bool = false
 var speed = 1
 #TODO:下面两项和加载存档有关
-var last_record_system_time_unix:int = Time.get_unix_time_from_datetime_dict(Time.get_datetime_dict_from_system())
-var last_record_global_time_unix:int = 0
+var last_record_system_time_unix:int
+var last_record_global_time_unix:int
 
 signal recalculate(period:int)
 
 func _ready():
-	var period = recalculate_time_period()
 	last_record_system_time_unix = SaveManager.save_data.last_record_system_time_unix
 	last_record_global_time_unix = SaveManager.save_data.last_record_global_time_unix
 	print(SaveManager.save_data.last_record_global_time_unix)
+	var period = recalculate_time_period()
 	global_time_unix_float = last_record_global_time_unix + period
+	await get_tree().current_scene.all_ready
 	recalculate.emit(period)
 
 func _process(delta):

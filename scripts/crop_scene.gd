@@ -11,7 +11,7 @@ enum CropState {
 }
 
 var crop:Crop #TODO:和存档有关
-var land
+var land:Land
 @onready var texture_rect = %TextureRect
 @onready var light_occluder_2d = %LightOccluder2D
 
@@ -21,9 +21,10 @@ var last_record_exp:int #TODO:和存档有关
 
 
 func _ready():
+	land = get_parent()
 	if crop:
 		calculate_state()
-	land = get_parent()
+
 	
 func _physics_process(delta):
 	_update_exp(delta)
@@ -38,11 +39,11 @@ func _update_exp(delta):
 			queue_free()
 	calculate_state()
 
-func recalculate(wet_time,dry_time):
+func recalculate(wet_time,dry_time):#这个在land调用
 	exp_point = last_record_exp + wet_time * WET_RATE + dry_time * DRY_RATE
 	calculate_state()
 
-func calculate_state():
+func calculate_state():#根据exp计算阶段
 	var interval_second = crop.interval * GlobalTime.CYCLE_DAY * GlobalTime.CYCLE_HOUR * GlobalTime.CYCLE_MINUTE
 	if exp_point >= interval_second * 3:
 		change_state(CropState.RIPE)

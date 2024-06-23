@@ -1,21 +1,25 @@
 extends Node2D
 const TIME_GRADIENT = preload("res://assets/time_gradient.tres")
-
+const LAND = preload("res://scenes/land.tscn")
 signal add_item(item: ItemData, count: int)
+signal all_ready
 var resources = {}
 var grab_slot = null
+var land_datas:Array[LandData] = []
 
 @onready var canvas_layer = $CanvasLayer
 @onready var time_label = %TimeLabel
 @onready var canvas_modulate = %CanvasModulate
 @onready var point_light_2d = %PointLight2D
 @onready var inventory = $CanvasLayer/Inventory
+@onready var lands = %Lands
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_resources_from_folder("res://assets/crops_resource/")
 	load_resources_from_folder("res://assets/tools_resource/")
 	_init_lands()#初始化土地
+	all_ready.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -65,8 +69,19 @@ func _on_inventory_item_exchanged():
 
 
 func _init_lands():
-	pass
-
+	if SaveManager.save_data.lands:
+		for item in lands.get_children():
+			item.queue_free()
+			await item.tree_exited
+		for land_data in SaveManager.save_data.lands:
+			var land_scene = LAND.instantiate()
+			land_scene.land_data = land_data
+			land_scene.position = land_data.position
+			lands.add_child(land_scene)
+	else:#TODO:如果没有存档，初期应该怎么处理由做工具的人决定吧，此处写的是按放在场景里的两块土地
+		for land in lands.get_children():
+			land_datas.append(land.land_data)
+			SaveManager.save_data.save_lands(land_datas)
 
 func _refresh_clock():
 	time_label.text = GlobalTime.time_to_string()
@@ -82,4 +97,9 @@ func _refresh_clock():
 
 func _on_save_button_pressed():
 	SaveManager.save_data.save_inventory(inventory.inventory)
+	land_datas = []
+	for land in lands.get_children():
+		land.save()
+		land_datas.append(land.land_data)
+	SaveManager.save_data.save_lands(land_datas)
 	SaveManager.save()

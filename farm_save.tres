@@ -1,100 +1,108 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=24 format=3 uid="uid://dev3enll37rl7"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=23 format=3]
 
-[ext_resource type="Script" path="res://scripts/save_data.gd" id="1_3tfrv"]
-[ext_resource type="Resource" uid="uid://b8ltv5bvqhq1t" path="res://assets/crops_resource/potato.tres" id="1_l1pug"]
-[ext_resource type="Script" path="res://scripts/slot_data.gd" id="2_o1x36"]
-[ext_resource type="Resource" uid="uid://dqipoeacdy8ga" path="res://assets/crops_resource/radish.tres" id="3_yxy0y"]
-[ext_resource type="Resource" uid="uid://dveuymree2d6o" path="res://assets/crops_resource/onion.tres" id="4_v61f0"]
-[ext_resource type="Resource" uid="uid://dsgmw16jnoepc" path="res://assets/tools_resource/hoe.tres" id="5_5ornx"]
-[ext_resource type="Resource" uid="uid://dobhrsyhj8vbv" path="res://assets/tools_resource/sickle.tres" id="6_l1wkv"]
+[ext_resource type="Script" path="res://scripts/slot_data.gd" id="1_4csy5"]
+[ext_resource type="Resource" path="res://assets/crops_resource/spinach.tres" id="2_xl1v2"]
+[ext_resource type="Script" path="res://scripts/land_data.gd" id="3_3d6up"]
+[ext_resource type="Script" path="res://scripts/save_data.gd" id="4_g7kjk"]
 
-[sub_resource type="Resource" id="Resource_5fc53"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_6sfeu"]
+script = ExtResource("1_4csy5")
 index = 0
-item = ExtResource("3_yxy0y")
-count = 2
+count = -1
 
-[sub_resource type="Resource" id="Resource_vrvrv"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_imhhx"]
+script = ExtResource("1_4csy5")
 index = 1
-item = ExtResource("1_l1pug")
-count = 1
+count = -1
 
-[sub_resource type="Resource" id="Resource_x2cjx"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_i3s54"]
+script = ExtResource("1_4csy5")
 index = 2
-item = ExtResource("4_v61f0")
-count = 3
+count = -1
 
-[sub_resource type="Resource" id="Resource_gu7yj"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_s6kp2"]
+script = ExtResource("1_4csy5")
 index = 3
 count = -1
 
-[sub_resource type="Resource" id="Resource_n3idr"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_4vn4w"]
+script = ExtResource("1_4csy5")
 index = 4
-item = ExtResource("6_l1wkv")
-count = 2
+count = -1
 
-[sub_resource type="Resource" id="Resource_2sjfd"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_xb2iy"]
+script = ExtResource("1_4csy5")
 index = 5
-item = ExtResource("5_5ornx")
-count = 3
+count = -1
 
-[sub_resource type="Resource" id="Resource_pjk17"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_n7lou"]
+script = ExtResource("1_4csy5")
 index = 6
 count = -1
 
-[sub_resource type="Resource" id="Resource_fpbom"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_0k2p8"]
+script = ExtResource("1_4csy5")
 index = 7
 count = -1
 
-[sub_resource type="Resource" id="Resource_07iqy"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_2x25j"]
+script = ExtResource("1_4csy5")
 index = 8
 count = -1
 
-[sub_resource type="Resource" id="Resource_e5ui3"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_ej7ka"]
+script = ExtResource("1_4csy5")
 index = 9
 count = -1
 
-[sub_resource type="Resource" id="Resource_4ttee"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_vrekf"]
+script = ExtResource("1_4csy5")
 index = 10
 count = -1
 
-[sub_resource type="Resource" id="Resource_2oadv"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_yy73e"]
+script = ExtResource("1_4csy5")
 index = 11
 count = -1
 
-[sub_resource type="Resource" id="Resource_hswao"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_6c61a"]
+script = ExtResource("1_4csy5")
 index = 12
 count = -1
 
-[sub_resource type="Resource" id="Resource_2bsmd"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_2eo2o"]
+script = ExtResource("1_4csy5")
 index = 13
 count = -1
 
-[sub_resource type="Resource" id="Resource_0hoj0"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_u5nw0"]
+script = ExtResource("1_4csy5")
 index = 14
 count = -1
 
-[sub_resource type="Resource" id="Resource_1fr3h"]
-script = ExtResource("2_o1x36")
+[sub_resource type="Resource" id="Resource_84os2"]
+script = ExtResource("1_4csy5")
 index = 15
 count = -1
 
+[sub_resource type="Resource" id="Resource_vsge0"]
+script = ExtResource("3_3d6up")
+crop = ExtResource("2_xl1v2")
+current_state = 4
+land_last_record_exp = 51
+crop_last_record_exp = 145711
+position = Vector2(135, 71)
+
+[sub_resource type="Resource" id="Resource_ktbdi"]
+script = ExtResource("3_3d6up")
+current_state = 1
+land_last_record_exp = 22080
+crop_last_record_exp = 0
+position = Vector2(99, 71)
+
 [resource]
-script = ExtResource("1_3tfrv")
-last_record_system_time_unix = 1719140025
-last_record_global_time_unix = 17516
-inventory = Array[ExtResource("2_o1x36")]([SubResource("Resource_5fc53"), SubResource("Resource_vrvrv"), SubResource("Resource_x2cjx"), SubResource("Resource_gu7yj"), SubResource("Resource_n3idr"), SubResource("Resource_2sjfd"), SubResource("Resource_pjk17"), SubResource("Resource_fpbom"), SubResource("Resource_07iqy"), SubResource("Resource_e5ui3"), SubResource("Resource_4ttee"), SubResource("Resource_2oadv"), SubResource("Resource_hswao"), SubResource("Resource_2bsmd"), SubResource("Resource_0hoj0"), SubResource("Resource_1fr3h")])
+script = ExtResource("4_g7kjk")
+last_record_system_time_unix = 1719153893
+last_record_global_time_unix = 126925
+inventory = Array[ExtResource("1_4csy5")]([SubResource("Resource_6sfeu"), SubResource("Resource_imhhx"), SubResource("Resource_i3s54"), SubResource("Resource_s6kp2"), SubResource("Resource_4vn4w"), SubResource("Resource_xb2iy"), SubResource("Resource_n7lou"), SubResource("Resource_0k2p8"), SubResource("Resource_2x25j"), SubResource("Resource_ej7ka"), SubResource("Resource_vrekf"), SubResource("Resource_yy73e"), SubResource("Resource_6c61a"), SubResource("Resource_2eo2o"), SubResource("Resource_u5nw0"), SubResource("Resource_84os2")])
+lands = Array[ExtResource("3_3d6up")]([SubResource("Resource_vsge0"), SubResource("Resource_ktbdi")])
