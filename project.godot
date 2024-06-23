@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SaveManager="*res://scripts/save_manager.gd"
 GlobalTime="*res://scripts/time.gd"
 
 [display]

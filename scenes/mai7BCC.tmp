@@ -618,7 +618,6 @@ script = ExtResource("1_y02yu")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("1_qjv64")]
-visible = false
 offset_left = 142.0
 offset_top = 25.0
 offset_right = 233.0
@@ -633,8 +632,7 @@ scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("3_pvce2")
 text = "Save"
 
-[node name="TestButton" type="Button" parent="CanvasLayer"]
-visible = false
+[node name="Button" type="Button" parent="CanvasLayer"]
 offset_left = 172.0
 offset_top = 123.0
 offset_right = 267.0
@@ -724,4 +722,4 @@ texture = SubResource("GradientTexture2D_ghhci")
 [connection signal="item_exchanged" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_exchanged"]
 [connection signal="item_grabbed" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_grabbed"]
 [connection signal="pressed" from="CanvasLayer/SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/TestButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

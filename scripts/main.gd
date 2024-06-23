@@ -9,6 +9,7 @@ var grab_slot = null
 @onready var time_label = %TimeLabel
 @onready var canvas_modulate = %CanvasModulate
 @onready var point_light_2d = %PointLight2D
+@onready var inventory = $CanvasLayer/Inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -63,7 +64,6 @@ func _on_inventory_item_exchanged():
 	grab_slot = null
 
 
-
 func _init_lands():
 	pass
 
@@ -78,3 +78,8 @@ func _refresh_clock():
 		point_light_2d.show()
 	else:
 		point_light_2d.hide()
+
+
+func _on_save_button_pressed():
+	SaveManager.save_data.save_inventory(inventory.inventory)
+	SaveManager.save()

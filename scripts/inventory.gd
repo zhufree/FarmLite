@@ -7,12 +7,17 @@ signal item_grabbed(item: SlotData)
 signal item_exchanged()
 var slot_scene = preload("res://scenes/inventory/slot.tscn")
 var grabbed_slot = null
+
 func _ready():
-	inventory.resize(16)
-	for i in inventory.size():
-		var emptySlot = SlotData.new()
-		emptySlot.index = i
-		inventory[i] = emptySlot
+	inventory = SaveManager.save_data.inventory
+	if inventory.size() == 0:
+		inventory.resize(16)
+		for i in inventory.size():
+			var emptySlot = SlotData.new()
+			emptySlot.index = i
+			inventory[i] = emptySlot
+	else:
+		update_item_UI()
 
 func update_item_UI():
 	for child in grid_container.get_children():
