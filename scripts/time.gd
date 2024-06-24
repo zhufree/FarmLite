@@ -24,7 +24,7 @@ func _ready():
 	print(SaveManager.save_data.last_record_global_time_unix)
 	var period = recalculate_time_period()
 	global_time_unix_float = last_record_global_time_unix + period
-	await get_tree().current_scene.all_ready
+	await get_tree().current_scene.ready
 	recalculate.emit(period)
 
 func _process(delta):

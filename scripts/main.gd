@@ -2,7 +2,6 @@ extends Node2D
 const TIME_GRADIENT = preload("res://assets/time_gradient.tres")
 const LAND = preload("res://scenes/land.tscn")
 signal add_item(item: ItemData, count: int)
-signal all_ready
 var resources = {}
 var grab_slot = null
 var land_datas:Array[LandData] = []
@@ -19,7 +18,6 @@ func _ready():
 	load_resources_from_folder("res://assets/crops_resource/")
 	load_resources_from_folder("res://assets/tools_resource/")
 	_init_lands()#初始化土地
-	all_ready.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
