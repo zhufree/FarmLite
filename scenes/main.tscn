@@ -637,15 +637,24 @@ fill_to = Vector2(0.5, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_y02yu")
+metadata/_edit_vertical_guides_ = [630.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="tips" type="Label" parent="CanvasLayer"]
+offset_left = 98.0
+offset_top = 184.0
+offset_right = 282.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("3_pvce2")
+theme_override_font_sizes/font_size = 8
+text = "Press B to close the backpack"
+
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("1_qjv64")]
-visible = false
-offset_left = 142.0
-offset_top = 25.0
-offset_right = 233.0
-offset_bottom = 119.0
+offset_left = 5.0
+offset_top = -99.0
+offset_right = 96.0
+offset_bottom = -5.0
 
 [node name="SaveButton" type="Button" parent="CanvasLayer"]
 offset_left = 4.0
@@ -741,7 +750,6 @@ shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_ghhci")
 
-[connection signal="add_item" from="." to="CanvasLayer/Inventory" method="_on_add_item"]
 [connection signal="item_exchanged" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_exchanged"]
 [connection signal="item_grabbed" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_grabbed"]
 [connection signal="pressed" from="CanvasLayer/SaveButton" to="." method="_on_save_button_pressed"]

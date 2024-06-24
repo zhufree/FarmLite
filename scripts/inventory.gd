@@ -1,6 +1,7 @@
 extends Control
 
 @onready var grid_container = $MarginContainer2/GridContainer
+@onready var slots_container = $MarginContainer/GridContainer
 
 @export var inventory: Array[SlotData] = []
 signal item_grabbed(item: SlotData)
@@ -88,3 +89,21 @@ func on_item_clicked(slot: SlotData):
 		grabbed_slot = null
 		update_item_UI()
 		item_exchanged.emit()
+
+func show_storage() -> void:
+	#var storage_slots:Array[Node] = get_tree().get_nodes_in_group("StorageSlots")
+	for slot in slots_container.get_children().slice(0,12):
+		slot.show()
+	for slot in grid_container.get_children().slice(0,12):
+		slot.show()
+	size.y = 94
+	position.y = 117
+
+func hide_storage() -> void:
+	#var storage_slots:Array[Node] = get_tree().get_nodes_in_group("StorageSlots")
+	for slot in slots_container.get_children().slice(0,12):
+		slot.hide()
+	for slot in grid_container.get_children().slice(0,12):
+		slot.hide()
+	size.y = 28
+	position.y = 183

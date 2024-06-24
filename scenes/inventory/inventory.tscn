@@ -13,8 +13,12 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 
 [node name="PanelContainer" type="PanelContainer"]
-offset_right = 67.0
-offset_bottom = 16.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -94.0
+offset_right = 91.0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ef7nf")
 script = ExtResource("1_oouw5")
 
@@ -27,11 +31,13 @@ theme_override_constants/margin_bottom = 2
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 2
 columns = 4
 
-[node name="Slot" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot" type="Control" parent="MarginContainer/GridContainer" groups=["ActionSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -44,18 +50,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="MarginContainer/GridContainer/Slot"]
-layout_mode = 0
-offset_right = 7.0
-offset_bottom = 8.0
-scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("4_vayrv")
-theme_override_font_sizes/font_size = 7
-text = "Q"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Slot2" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot2" type="Control" parent="MarginContainer/GridContainer" groups=["ActionSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -68,17 +63,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="MarginContainer/GridContainer/Slot2"]
-offset_right = 7.0
-offset_bottom = 8.0
-scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("4_vayrv")
-theme_override_font_sizes/font_size = 7
-text = "W"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Slot3" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot3" type="Control" parent="MarginContainer/GridContainer" groups=["ActionSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -91,17 +76,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="MarginContainer/GridContainer/Slot3"]
-offset_right = 7.0
-offset_bottom = 8.0
-scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("4_vayrv")
-theme_override_font_sizes/font_size = 7
-text = "E"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Slot4" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot4" type="Control" parent="MarginContainer/GridContainer" groups=["ActionSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -114,17 +89,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="MarginContainer/GridContainer/Slot4"]
-offset_right = 7.0
-offset_bottom = 8.0
-scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("4_vayrv")
-theme_override_font_sizes/font_size = 7
-text = "R"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Slot5" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot5" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -137,7 +102,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot6" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot6" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -150,7 +115,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot7" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot7" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -163,7 +128,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot8" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot8" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -176,7 +141,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot9" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot9" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -189,7 +154,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot10" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot10" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -202,7 +167,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot11" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot11" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -215,7 +180,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot12" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot12" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -228,7 +193,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot13" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Slot13" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -241,7 +206,18 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot14" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/Slot13"]
+layout_mode = 0
+offset_right = 7.0
+offset_bottom = 8.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_vayrv")
+theme_override_font_sizes/font_size = 7
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot14" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -254,7 +230,18 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot15" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/Slot14"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_vayrv")
+theme_override_font_sizes/font_size = 7
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot15" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -267,7 +254,18 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
-[node name="Slot16" type="Control" parent="MarginContainer/GridContainer"]
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/Slot15"]
+layout_mode = 0
+offset_right = 7.0
+offset_bottom = 8.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_vayrv")
+theme_override_font_sizes/font_size = 7
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot16" type="Control" parent="MarginContainer/GridContainer" groups=["StorageSlots"]]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
@@ -280,6 +278,17 @@ size_flags_vertical = 4
 texture = ExtResource("3_3iwtt")
 expand_mode = 1
 
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/Slot16"]
+layout_mode = 0
+offset_right = 7.0
+offset_bottom = 8.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("4_vayrv")
+theme_override_font_sizes/font_size = 7
+text = "R"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 2
@@ -289,6 +298,8 @@ theme_override_constants/margin_bottom = 2
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer2"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 2
 columns = 4

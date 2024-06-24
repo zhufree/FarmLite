@@ -55,10 +55,10 @@ func _on_drop_button_pressed():
 		count_label.text = str(slotData.count)
 		operation_container.hide()
 	else:
-		emit_signal('remove_item', slotData)
+		remove_item.emit(slotData)
 
 func _on_click_item():
-	emit_signal('click_item', slotData)
+	click_item.emit(slotData)
 
 func is_mouse_in_node() -> bool:
 	var mouse_pos = get_global_mouse_position()

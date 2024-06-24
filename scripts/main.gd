@@ -1,10 +1,12 @@
 extends Node2D
+
 const TIME_GRADIENT = preload("res://assets/time_gradient.tres")
 const LAND = preload("res://scenes/land.tscn")
 signal add_item(item: ItemData, count: int)
 var resources = {}
 var grab_slot = null
 var land_datas:Array[LandData] = []
+var is_display_storage_slots := true
 
 @onready var canvas_layer = $CanvasLayer
 @onready var time_label = %TimeLabel
@@ -12,6 +14,7 @@ var land_datas:Array[LandData] = []
 @onready var point_light_2d = %PointLight2D
 @onready var inventory = $CanvasLayer/Inventory
 @onready var lands = %Lands
+@onready var tips: Label = $CanvasLayer/tips
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +28,16 @@ func _process(_delta):
 		grab_slot.position = get_global_mouse_position() - Vector2(8, 8)
 	#更新时钟
 	_refresh_clock()
+	# 切换背包
+	if Input.is_action_just_pressed("switch_display_storage_slots"):
+		if is_display_storage_slots:
+			inventory.hide_storage()
+			tips.hide()
+			is_display_storage_slots = false
+		else:
+			inventory.show_storage()
+			tips.show()
+			is_display_storage_slots = true
 
 func _on_button_pressed():
 	# add a random item
