@@ -6,4 +6,3 @@ class_name ItemData
 @export var description: String
 @export var icon: Texture
 @export var sprite: Texture
-

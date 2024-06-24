@@ -9,7 +9,7 @@ enum LandState {
 	WATERED
 }
 const CROP = preload("res://scenes/crop.tscn")
-const MAX_EXP = 86400#土的干涸时间是游戏时间1天
+const MAX_EXP = 86400 #土的干涸时间是游戏时间1天
 
 var land_data = LandData.new()
 var crop_node:CropNode = null
@@ -19,9 +19,10 @@ var planted:bool = false
 
 @onready var texture_rect = $TextureRect
 
+
 func _ready():
 	GlobalTime.recalculate.connect(_recalculate)
-	
+
 func change_state(new_state):
 	exp_point = 0 #附带了一个浇水
 	current_state = new_state
@@ -48,7 +49,6 @@ func _update_exp(delta):
 		exp_point += delta * GlobalTime.speed * GlobalTime.CYCLE_MINUTE
 	if exp_point >= MAX_EXP:
 		_dry()
-
 
 func _on_texture_rect_gui_input(event):
 	if event is InputEventMouseButton:

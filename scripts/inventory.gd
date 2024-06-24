@@ -25,8 +25,8 @@ func update_item_UI():
 	for slot in inventory:
 		var new_slot_node = slot_scene.instantiate()
 		new_slot_node.slotData = slot
-		new_slot_node.connect('remove_item', Callable(self, "on_item_removed"))
-		new_slot_node.connect('click_item', Callable(self, "on_item_clicked"))
+		new_slot_node.remove_item.connect(on_item_removed)
+		new_slot_node.click_item.connect(on_item_clicked)
 		new_slot_node.add_to_group('Slot')
 		grid_container.add_child(new_slot_node)
 
@@ -46,7 +46,6 @@ func add_item(item: ItemData, count = 1):
 		inventory[index] = new_slot_data
 	update_item_UI()
 
-
 func remove_item():
 	pass
 
@@ -60,17 +59,14 @@ func get_min_index():
 			return min_index
 	return min_index
 
-
 func _on_add_item(item, count):
 	add_item(item, count)
-
 
 func on_item_removed(item):
 	var emptySlotData = SlotData.new()
 	emptySlotData.index = item.index
 	inventory[item.index] = emptySlotData
 	update_item_UI()
-
 
 func on_item_clicked(slot: SlotData):
 	if grabbed_slot == null:
@@ -81,7 +77,7 @@ func on_item_clicked(slot: SlotData):
 		inventory[slot.index] = emptySlotData
 		grabbed_slot = slot
 		update_item_UI()
-		emit_signal("item_grabbed", slot)
+		item_grabbed.emit(slot)
 	else:
 		# exchange item
 		var target_index = slot.index
@@ -91,4 +87,4 @@ func on_item_clicked(slot: SlotData):
 		inventory[target_index] = grabbed_slot.duplicate()
 		grabbed_slot = null
 		update_item_UI()
-		emit_signal("item_exchanged")
+		item_exchanged.emit()
