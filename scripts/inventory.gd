@@ -107,3 +107,11 @@ func hide_storage() -> void:
 		slot.hide()
 	size.y = 28
 	position.y = 183
+	
+func get_action_slot_info(action:StringName) -> SlotData:
+	return {
+		"tool_q": inventory[12],
+		"tool_w": inventory[13],
+		"tool_e": inventory[14],
+		"tool_r": inventory[15],
+	}[action]

@@ -7,6 +7,7 @@ var resources = {}
 var grab_slot = null
 var land_datas:Array[LandData] = []
 var is_display_storage_slots := true
+var current_choose_slot: SlotData
 
 @onready var canvas_layer = $CanvasLayer
 @onready var time_label = %TimeLabel
@@ -38,6 +39,7 @@ func _process(_delta):
 			inventory.show_storage()
 			tips.show()
 			is_display_storage_slots = true
+	_current_choose_tool()
 
 func _on_button_pressed():
 	# add a random item
@@ -73,11 +75,9 @@ func _on_inventory_item_grabbed(item: SlotData):
 	grab_slot.slotData = item
 	canvas_layer.add_child(grab_slot)
 
-
 func _on_inventory_item_exchanged():
 	grab_slot.queue_free()
 	grab_slot = null
-
 
 func _init_lands():
 	if SaveManager.save_data.lands:
@@ -89,7 +89,7 @@ func _init_lands():
 			land_scene.land_data = land_data
 			land_scene.position = land_data.position
 			lands.add_child(land_scene)
-	else:#TODO:如果没有存档，初期应该怎么处理由做工具的人决定吧，此处写的是按放在场景里的两块土地
+	else: #TODO:如果没有存档，初期应该怎么处理由做工具的人决定吧，此处写的是按放在场景里的两块土地
 		for land in lands.get_children():
 			land_datas.append(land.land_data)
 			SaveManager.save_data.save_lands(land_datas)
@@ -105,7 +105,6 @@ func _refresh_clock():
 	else:
 		point_light_2d.hide()
 
-
 func _on_save_button_pressed():
 	SaveManager.save_data.save_inventory(inventory.inventory)
 	land_datas = []
@@ -114,3 +113,14 @@ func _on_save_button_pressed():
 		land_datas.append(land.land_data)
 	SaveManager.save_data.save_lands(land_datas)
 	SaveManager.save()
+
+# 检测鼠标输入，根据输入获取对应的工具信息
+func _current_choose_tool() -> void:
+	if Input.is_action_just_pressed("choose_tool_q"):
+		current_choose_slot = inventory.get_action_slot_info("tool_q")
+	elif Input.is_action_just_pressed("choose_tool_w"):
+		current_choose_slot = inventory.get_action_slot_info("tool_w")
+	elif Input.is_action_just_pressed("choose_tool_e"):
+		current_choose_slot = inventory.get_action_slot_info("tool_e")
+	elif Input.is_action_just_pressed("choose_tool_r"):
+		current_choose_slot = inventory.get_action_slot_info("tool_r")
