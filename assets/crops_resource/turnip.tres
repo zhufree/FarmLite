@@ -19,6 +19,6 @@ script = ExtResource("2_28oaq")
 interval = 2
 frame = ExtResource("1_wiws5")
 name = "芜菁"
-description = "芜菁芜菁"
+description = "芜菁芜菁！"
 icon = SubResource("AtlasTexture_t1wxv")
 sprite = SubResource("AtlasTexture_3ftuq")

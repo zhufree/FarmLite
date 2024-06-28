@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=4 format=3 uid="uid://botgl5fwwgou6"]
+
+[ext_resource type="Texture2D" uid="uid://dpvpvlc7b462j" path="res://assets/crops_sprite/Carrot.png" id="1_k75pf"]
+[ext_resource type="Script" path="res://scripts/seed.gd" id="2_mvpib"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gmoq"]
+atlas = ExtResource("1_k75pf")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("2_mvpib")
+name = "胡萝卜"
+description = "一颗胡萝卜种子。"
+icon = SubResource("AtlasTexture_2gmoq")
+sprite = ExtResource("1_k75pf")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=4 format=3 uid="uid://dbjdtok27bgrd"]
+
+[ext_resource type="Texture2D" uid="uid://c42pja4o6yaa1" path="res://assets/crops_sprite/Potato.png" id="1_87dix"]
+[ext_resource type="Script" path="res://scripts/seed.gd" id="2_ajdhj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnai0"]
+atlas = ExtResource("1_87dix")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("2_ajdhj")
+name = "土豆种子"
+description = "一颗土豆种子。"
+icon = SubResource("AtlasTexture_lnai0")
+sprite = ExtResource("1_87dix")

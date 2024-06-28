@@ -115,3 +115,4 @@ func get_action_slot_info(action:StringName) -> SlotData:
 		"tool_e": inventory[14],
 		"tool_r": inventory[15],
 	}[action]
+
