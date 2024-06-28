@@ -107,3 +107,4 @@ func hide_storage() -> void:
 		slot.hide()
 	size.y = 28
 	position.y = 183
+

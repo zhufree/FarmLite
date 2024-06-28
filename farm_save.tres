@@ -1,106 +1,116 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=28 format=3 uid="uid://d4k7v7l6s3vhg"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=33 format=3 uid="uid://d4k7v7l6s3vhg"]
 
-[ext_resource type="Script" path="res://scripts/slot_data.gd" id="1_4csy5"]
-[ext_resource type="Resource" uid="uid://dqipoeacdy8ga" path="res://assets/crops_resource/radish.tres" id="2_8oknw"]
+[ext_resource type="Resource" uid="uid://botgl5fwwgou6" path="res://assets/seeds_resource/carrot_seed.tres" id="1_132uu"]
+[ext_resource type="Script" path="res://scripts/slot_data.gd" id="2_6dnpa"]
 [ext_resource type="Resource" uid="uid://cnb8cgyp2mih1" path="res://assets/crops_resource/spinach.tres" id="2_xl1v2"]
-[ext_resource type="Resource" uid="uid://dveuymree2d6o" path="res://assets/crops_resource/onion.tres" id="3_2dlhs"]
 [ext_resource type="Script" path="res://scripts/land_data.gd" id="3_3d6up"]
-[ext_resource type="Resource" uid="uid://dsgmw16jnoepc" path="res://assets/tools_resource/hoe.tres" id="4_ch008"]
+[ext_resource type="Resource" uid="uid://rrtldvsvv71c" path="res://assets/seeds_resource/onion_seed.tres" id="3_wmhao"]
+[ext_resource type="Resource" uid="uid://dbjdtok27bgrd" path="res://assets/seeds_resource/potato_seed.tres" id="4_2wsjb"]
 [ext_resource type="Script" path="res://scripts/save_data.gd" id="4_g7kjk"]
-[ext_resource type="Resource" uid="uid://b8ltv5bvqhq1t" path="res://assets/crops_resource/potato.tres" id="5_bmbm5"]
-[ext_resource type="Resource" uid="uid://dobhrsyhj8vbv" path="res://assets/tools_resource/sickle.tres" id="6_oei1l"]
+[ext_resource type="Resource" uid="uid://be3y4451pgkwk" path="res://assets/seeds_resource/radish_seed.tres" id="5_8gvm4"]
+[ext_resource type="Resource" uid="uid://bgufftlje3bnr" path="res://assets/seeds_resource/spinach_seed.tres" id="6_fndwr"]
+[ext_resource type="Resource" uid="uid://oojtr5d0xrhp" path="res://assets/seeds_resource/turnip_seed.tres" id="7_6kpqd"]
+[ext_resource type="Resource" uid="uid://dsgmw16jnoepc" path="res://assets/tools_resource/hoe.tres" id="8_afgk6"]
+[ext_resource type="Resource" uid="uid://b65s1758yf151" path="res://assets/tools_resource/kettle.tres" id="9_li0t8"]
+[ext_resource type="Resource" uid="uid://ccvnchdnn5a6" path="res://assets/tools_resource/shovel.tres" id="10_f42v6"]
+[ext_resource type="Resource" uid="uid://dobhrsyhj8vbv" path="res://assets/tools_resource/sickle.tres" id="11_75p60"]
 
-[sub_resource type="Resource" id="Resource_xb2iy"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_kkkpp"]
+script = ExtResource("2_6dnpa")
 index = 0
-count = -1
-
-[sub_resource type="Resource" id="Resource_2t2jk"]
-script = ExtResource("1_4csy5")
-index = 1
-item = ExtResource("2_8oknw")
+item = ExtResource("1_132uu")
 count = 2
 
-[sub_resource type="Resource" id="Resource_6r8qd"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_m1d3o"]
+script = ExtResource("2_6dnpa")
+index = 1
+item = ExtResource("3_wmhao")
+count = 2
+
+[sub_resource type="Resource" id="Resource_l0jd5"]
+script = ExtResource("2_6dnpa")
 index = 2
-item = ExtResource("3_2dlhs")
-count = 3
+item = ExtResource("4_2wsjb")
+count = 2
 
-[sub_resource type="Resource" id="Resource_u2rts"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_cjk1y"]
+script = ExtResource("2_6dnpa")
 index = 3
-item = ExtResource("4_ch008")
-count = 1
+item = ExtResource("5_8gvm4")
+count = 2
 
-[sub_resource type="Resource" id="Resource_ej7ka"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_vx8nl"]
+script = ExtResource("2_6dnpa")
 index = 4
-count = -1
+item = ExtResource("6_fndwr")
+count = 2
 
-[sub_resource type="Resource" id="Resource_uuryl"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_b5387"]
+script = ExtResource("2_6dnpa")
 index = 5
-item = ExtResource("5_bmbm5")
-count = 1
+item = ExtResource("7_6kpqd")
+count = 2
 
-[sub_resource type="Resource" id="Resource_n7lou"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_340eu"]
+script = ExtResource("2_6dnpa")
 index = 6
 count = -1
 
-[sub_resource type="Resource" id="Resource_0k2p8"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_wa1ju"]
+script = ExtResource("2_6dnpa")
 index = 7
 count = -1
 
-[sub_resource type="Resource" id="Resource_2x25j"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_6m4n0"]
+script = ExtResource("2_6dnpa")
 index = 8
 count = -1
 
-[sub_resource type="Resource" id="Resource_2eo2o"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_cjcqi"]
+script = ExtResource("2_6dnpa")
 index = 9
 count = -1
 
-[sub_resource type="Resource" id="Resource_vrekf"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_xt35e"]
+script = ExtResource("2_6dnpa")
 index = 10
 count = -1
 
-[sub_resource type="Resource" id="Resource_yy73e"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_dhjjs"]
+script = ExtResource("2_6dnpa")
 index = 11
 count = -1
 
-[sub_resource type="Resource" id="Resource_6c61a"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_w1jm4"]
+script = ExtResource("2_6dnpa")
 index = 12
-count = -1
-
-[sub_resource type="Resource" id="Resource_cafhj"]
-script = ExtResource("1_4csy5")
-index = 13
-item = ExtResource("6_oei1l")
+item = ExtResource("8_afgk6")
 count = 1
 
-[sub_resource type="Resource" id="Resource_u5nw0"]
-script = ExtResource("1_4csy5")
-index = 14
-count = -1
+[sub_resource type="Resource" id="Resource_uaae4"]
+script = ExtResource("2_6dnpa")
+index = 13
+item = ExtResource("10_f42v6")
+count = 1
 
-[sub_resource type="Resource" id="Resource_84os2"]
-script = ExtResource("1_4csy5")
+[sub_resource type="Resource" id="Resource_duhjc"]
+script = ExtResource("2_6dnpa")
+index = 14
+item = ExtResource("11_75p60")
+count = 1
+
+[sub_resource type="Resource" id="Resource_by554"]
+script = ExtResource("2_6dnpa")
 index = 15
-count = -1
+item = ExtResource("9_li0t8")
+count = 1
 
 [sub_resource type="Resource" id="Resource_vsge0"]
 script = ExtResource("3_3d6up")
 crop = ExtResource("2_xl1v2")
 current_state = 3
 land_last_record_exp = 0
-crop_last_record_exp = 7058863
+crop_last_record_exp = 26619163
 position = Vector2(135, 71)
 
 [sub_resource type="Resource" id="Resource_ktbdi"]
@@ -108,12 +118,12 @@ script = ExtResource("3_3d6up")
 crop = ExtResource("2_xl1v2")
 current_state = 3
 land_last_record_exp = 0
-crop_last_record_exp = 4649759
+crop_last_record_exp = 24210059
 position = Vector2(99, 71)
 
 [resource]
 script = ExtResource("4_g7kjk")
-last_record_system_time_unix = 1719263234
-last_record_global_time_unix = 6782901
-inventory = Array[ExtResource("1_4csy5")]([SubResource("Resource_xb2iy"), SubResource("Resource_2t2jk"), SubResource("Resource_6r8qd"), SubResource("Resource_u2rts"), SubResource("Resource_ej7ka"), SubResource("Resource_uuryl"), SubResource("Resource_n7lou"), SubResource("Resource_0k2p8"), SubResource("Resource_2x25j"), SubResource("Resource_2eo2o"), SubResource("Resource_vrekf"), SubResource("Resource_yy73e"), SubResource("Resource_6c61a"), SubResource("Resource_cafhj"), SubResource("Resource_u5nw0"), SubResource("Resource_84os2")])
+last_record_system_time_unix = 1719587837
+last_record_global_time_unix = 26259078
+inventory = Array[ExtResource("2_6dnpa")]([SubResource("Resource_kkkpp"), SubResource("Resource_m1d3o"), SubResource("Resource_l0jd5"), SubResource("Resource_cjk1y"), SubResource("Resource_vx8nl"), SubResource("Resource_b5387"), SubResource("Resource_340eu"), SubResource("Resource_wa1ju"), SubResource("Resource_6m4n0"), SubResource("Resource_cjcqi"), SubResource("Resource_xt35e"), SubResource("Resource_dhjjs"), SubResource("Resource_w1jm4"), SubResource("Resource_uaae4"), SubResource("Resource_duhjc"), SubResource("Resource_by554")])
 lands = Array[ExtResource("3_3d6up")]([SubResource("Resource_vsge0"), SubResource("Resource_ktbdi")])

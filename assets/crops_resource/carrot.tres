@@ -21,6 +21,6 @@ script = ExtResource("2_bqxd2")
 interval = 2
 frame = ExtResource("1_r6bnb")
 name = "胡萝卜"
-description = ""
+description = "一颗胡萝卜。"
 icon = SubResource("AtlasTexture_t6cyn")
 sprite = SubResource("AtlasTexture_dyosk")

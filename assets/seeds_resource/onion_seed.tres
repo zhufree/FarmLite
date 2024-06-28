@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Seed" load_steps=4 format=3 uid="uid://rrtldvsvv71c"]
+
+[ext_resource type="Script" path="res://scripts/seed.gd" id="2_rgahx"]
+[ext_resource type="Texture2D" uid="uid://tw0xwqbsv3j7" path="res://assets/crops_sprite/Onion.png" id="3_eie68"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so4ur"]
+atlas = ExtResource("3_eie68")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("2_rgahx")
+name = "洋葱"
+description = "一颗洋葱种子。"
+icon = SubResource("AtlasTexture_so4ur")
+sprite = ExtResource("3_eie68")
