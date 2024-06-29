@@ -9,7 +9,7 @@ region = Rect2(0, 16, 16, 16)
 
 [resource]
 script = ExtResource("2_rgahx")
-name = "洋葱"
+name = "洋葱种子"
 description = "一颗洋葱种子。"
 icon = SubResource("AtlasTexture_so4ur")
 sprite = ExtResource("3_eie68")

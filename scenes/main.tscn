@@ -750,7 +750,6 @@ shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_ghhci")
 
-[connection signal="add_item" from="." to="CanvasLayer/Inventory" method="_on_add_item"]
 [connection signal="item_exchanged" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_exchanged"]
 [connection signal="item_grabbed" from="CanvasLayer/Inventory" to="." method="_on_inventory_item_grabbed"]
 [connection signal="pressed" from="CanvasLayer/SaveButton" to="." method="_on_save_button_pressed"]

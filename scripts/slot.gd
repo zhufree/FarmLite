@@ -8,6 +8,7 @@ class_name Slot
 @onready var desc_label = $DescContainer/MarginContainer/DescLabel
 @onready var desc_container = $DescContainer
 @onready var operation_container = $OperationContainer
+@onready var highlight_border = $HighlightBorder
 
 signal remove_item(item: SlotData)
 signal click_item(item: SlotData)
@@ -50,12 +51,7 @@ func _on_gui_input(event):
 			_on_click_item()
 
 func _on_drop_button_pressed():
-	if slotData.count > 1:
-		slotData.count -= 1
-		count_label.text = str(slotData.count)
-		operation_container.hide()
-	else:
-		remove_item.emit(slotData)
+	InventoryManager.remove_item(slotData)
 
 func _on_click_item():
 	click_item.emit(slotData)
@@ -64,3 +60,9 @@ func is_mouse_in_node() -> bool:
 	var mouse_pos = get_global_mouse_position()
 	var rect = Rect2(global_position, size)
 	return rect.has_point(mouse_pos)
+
+func on_choose():
+	highlight_border.show()
+
+func on_unchoose():
+	highlight_border.hide()

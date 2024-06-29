@@ -58,22 +58,33 @@ func _on_texture_rect_gui_input(event):
 
 func _click_on_land():
 	#TODO:这里还没有判断手里拿的工具，今后可以用if 持有物 is 类: 来处理
+	if crop_node:
+		match crop_node.current_state:
+			CropNode.CropState.RIPE:
+				# 收获
+				change_state(LandState.BARREN)
+				InventoryManager.add_item(crop_node.crop, 1)
+				crop_node.queue_free()
+				crop_node = null
+				return
 	match current_state:
 		LandState.WEED:
-			change_state(LandState.BARREN)
+			if Global.current_holding_item.item.name == '镰刀':
+				change_state(LandState.BARREN)
 		LandState.BARREN:
-			change_state(LandState.PLOWED)
+			if Global.current_holding_item.item.name == '锄头':
+				change_state(LandState.PLOWED)
 		LandState.PLOWED:
 			change_state(LandState.DRY)
 		LandState.DRY:
 			#TODO:按初期的设想好像是干土地也可以种种子，这里还没有做切换工具的功能，之后需要改一下逻辑
 			#如果需要种植就调用_plant(crop_data:Crop)就好，把持有物传进去
-			change_state(LandState.WATERED)#这里目前只浇水，为了测试方便
+			if Global.current_holding_item.item.name == '水壶':
+				change_state(LandState.WATERED)#这里目前只浇水，为了测试方便
 		LandState.WATERED:
 			exp_point = 0#浇水
-			if !crop_node:
-				_plant(load("res://assets/crops_resource/spinach.tres"))
-				#TODO:没种植就种植一个菠菜先，这里应该根据选的种子不同种植不同的作物
+			if !crop_node and Global.current_holding_item.item.name.contains('种子'):
+				_plant(Global.get_crop_from_seed(Global.current_holding_item.item.name))
 
 func _dry():
 	change_state(LandState.DRY)

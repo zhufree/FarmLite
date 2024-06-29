@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd1rex2htxggy"]
+[gd_scene load_steps=6 format=3 uid="uid://bd1rex2htxggy"]
 
 [ext_resource type="Script" path="res://scripts/slot.gd" id="2_44or4"]
+[ext_resource type="Texture2D" uid="uid://b85rcqhb6evrl" path="res://assets/highlight_border.png" id="2_kfp4u"]
 [ext_resource type="FontFile" uid="uid://dr5bkuy105ca0" path="res://assets/fonts/PixelOperator8.ttf" id="3_3ec6c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ounan"]
+atlas = ExtResource("2_kfp4u")
+region = Rect2(12, 12, 104, 104)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4a33"]
 bg_color = Color(0.344767, 0.609667, 0.930769, 1)
@@ -18,6 +23,14 @@ anchors_preset = 0
 offset_right = 20.0
 offset_bottom = 20.0
 script = ExtResource("2_44or4")
+
+[node name="HighlightBorder" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+texture = SubResource("AtlasTexture_ounan")
+expand_mode = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2

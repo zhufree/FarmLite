@@ -2,10 +2,8 @@ extends Node2D
 
 const TIME_GRADIENT = preload("res://assets/time_gradient.tres")
 const LAND = preload("res://scenes/land.tscn")
-signal add_item(item: ItemData, count: int)
-var crops_resource = {}
-var tools_resource = {}
-var seeds_resource = {}
+
+
 var grab_slot = null
 var land_datas:Array[LandData] = []
 var is_display_storage_slots := true
@@ -21,9 +19,7 @@ var current_choose_slot: SlotData
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_resources_from_folder("res://assets/crops_resource/", crops_resource)
-	load_resources_from_folder("res://assets/tools_resource/", tools_resource)
-	load_resources_from_folder("res://assets/seeds_resource/", seeds_resource)
+	
 	_init_lands()#初始化土地
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,29 +42,11 @@ func _process(_delta):
 
 func _on_button_pressed():
 	# add a random item
-	for key in seeds_resource:
-		emit_signal("add_item", seeds_resource[key], 2)
-	for key in tools_resource:
-		emit_signal("add_item", tools_resource[key], 1)
+	for key in Global.seeds_resource:
+		InventoryManager.add_item(Global.seeds_resource[key], 2)
+	for key in Global.tools_resource:
+		InventoryManager.add_item(Global.tools_resource[key], 1)
 
-
-func load_resources_from_folder(folder_path: String, target_dict: Dictionary):
-	var dir = DirAccess.open(folder_path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			var extension = file_name.get_extension()
-			if extension == "tres":
-				var file_path = folder_path + "/" + file_name
-				var resource = ResourceLoader.load(file_path)
-				if resource:
-					# 使用文件名作为键，将资源存储在字典中
-					target_dict[file_name.get_slice('.', 0)] = resource
-			file_name = dir.get_next()
-		dir.list_dir_end()
-	else:
-		print("An error occurred when trying to access the path.")
 
 var slot_scene = preload("res://scenes/inventory/slot.tscn")
 func _on_inventory_item_grabbed(item: SlotData):
@@ -109,7 +87,7 @@ func _refresh_clock():
 		point_light_2d.hide()
 
 func _on_save_button_pressed():
-	SaveManager.save_data.save_inventory(inventory.inventory)
+	SaveManager.save_data.save_inventory(InventoryManager.inventory)
 	land_datas = []
 	for land in lands.get_children():
 		land.save()

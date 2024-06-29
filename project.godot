@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 SaveManager="*res://scripts/save_manager.gd"
 GlobalTime="*res://scripts/time.gd"
+Global="*res://scripts/global.gd"
+InventoryManager="*res://scripts/inventory_manager.gd"
 
 [display]
 

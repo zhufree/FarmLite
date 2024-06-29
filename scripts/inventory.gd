@@ -3,89 +3,47 @@ extends Control
 @onready var grid_container = $MarginContainer2/GridContainer
 @onready var slots_container = $MarginContainer/GridContainer
 
-@export var inventory: Array[SlotData] = []
+
+var slot_nodes = []
 signal item_grabbed(item: SlotData)
 signal item_exchanged()
 var slot_scene = preload("res://scenes/inventory/slot.tscn")
 var grabbed_slot = null
 
 func _ready():
-	inventory = SaveManager.save_data.inventory
-	if inventory.size() == 0:
-		inventory.resize(16)
-		for i in inventory.size():
-			var emptySlot = SlotData.new()
-			emptySlot.index = i
-			inventory[i] = emptySlot
-	else:
-		update_item_UI()
+	InventoryManager.update_inventory_UI.connect(update_item_UI)
+	update_item_UI()
 
 func update_item_UI():
 	for child in grid_container.get_children():
 		child.queue_free()
-	for slot in inventory:
+		slot_nodes = []
+	for slot in InventoryManager.inventory:
 		var new_slot_node = slot_scene.instantiate()
 		new_slot_node.slotData = slot
-		new_slot_node.remove_item.connect(on_item_removed)
 		new_slot_node.click_item.connect(on_item_clicked)
 		new_slot_node.add_to_group('Slot')
+		slot_nodes.append(new_slot_node)
 		grid_container.add_child(new_slot_node)
 
-func add_item(item: ItemData, count = 1):
-	var item_exist = false
-	for slot in inventory:
-		if slot.item and slot.item.name == item.name:
-			item_exist = true
-			slot.count += count
-			break
-	if not item_exist:
-		var index = get_min_index()
-		var new_slot_data = SlotData.new()
-		new_slot_data.item = item
-		new_slot_data.count = count
-		new_slot_data.index = index
-		inventory[index] = new_slot_data
-	update_item_UI()
-
-func remove_item():
-	pass
-
-func get_min_index():
-	# 获取最小的空槽位index放物品
-	var min_index = 0
-	for slot in inventory:
-		if slot.item and slot.index == min_index:
-			min_index += 1
-		elif slot.item and slot.index > min_index:
-			return min_index
-	return min_index
-
-func _on_add_item(item, count):
-	add_item(item, count)
-
-func on_item_removed(item):
-	var emptySlotData = SlotData.new()
-	emptySlotData.index = item.index
-	inventory[item.index] = emptySlotData
-	update_item_UI()
 
 func on_item_clicked(slot: SlotData):
-	if grabbed_slot == null:
+	if grabbed_slot == null and slot.item:
 		# grab item
 		# create an empty slot at orignal index
 		var emptySlotData = SlotData.new()
 		emptySlotData.index = slot.index
-		inventory[slot.index] = emptySlotData
+		InventoryManager.inventory[slot.index] = emptySlotData
 		grabbed_slot = slot
 		update_item_UI()
 		item_grabbed.emit(slot)
-	else:
+	elif grabbed_slot != null:
 		# exchange item
 		var target_index = slot.index
 		slot.index = grabbed_slot.index
-		inventory[grabbed_slot.index] = slot
+		InventoryManager.inventory[grabbed_slot.index] = slot
 		grabbed_slot.index = target_index
-		inventory[target_index] = grabbed_slot.duplicate()
+		InventoryManager.inventory[target_index] = grabbed_slot.duplicate()
 		grabbed_slot = null
 		update_item_UI()
 		item_exchanged.emit()
@@ -109,10 +67,21 @@ func hide_storage() -> void:
 	position.y = 183
 	
 func get_action_slot_info(action:StringName) -> SlotData:
-	return {
-		"tool_q": inventory[12],
-		"tool_w": inventory[13],
-		"tool_e": inventory[14],
-		"tool_r": inventory[15],
+	var choose_slot_data =  {
+		"tool_q": InventoryManager.inventory[12],
+		"tool_w": InventoryManager.inventory[13],
+		"tool_e": InventoryManager.inventory[14],
+		"tool_r": InventoryManager.inventory[15],
 	}[action]
+	Global.current_holding_item = choose_slot_data
+	var choose_slot_node = {
+		"tool_q": slot_nodes[12],
+		"tool_w": slot_nodes[13],
+		"tool_e": slot_nodes[14],
+		"tool_r": slot_nodes[15],
+	}[action]
+	for node in slot_nodes:
+		node.on_unchoose()
+	choose_slot_node.on_choose()
+	return choose_slot_data
 
