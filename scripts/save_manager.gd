@@ -16,7 +16,6 @@ func load_save_data():
 func save():
 	save_data.last_record_system_time_unix = Time.get_unix_time_from_datetime_dict(Time.get_datetime_dict_from_system())
 	save_data.last_record_global_time_unix = GlobalTime.global_time_unix_float
-	print(save_data.last_record_global_time_unix)
 	ResourceSaver.save(save_data, save_file_path + save_file_name)
 	print('data saved')
 

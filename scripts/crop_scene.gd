@@ -10,8 +10,9 @@ enum CropState {
 	RIPE,
 }
 
-var crop:Crop #TODO:和存档有关
-var land:Land
+var crop: Crop #TODO:和存档有关
+var seed: Seed
+var land: Land
 @onready var texture_rect = %TextureRect
 @onready var light_occluder_2d = %LightOccluder2D
 

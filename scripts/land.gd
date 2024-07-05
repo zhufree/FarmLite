@@ -57,13 +57,13 @@ func _on_texture_rect_gui_input(event):
 
 
 func _click_on_land():
-	#TODO:这里还没有判断手里拿的工具，今后可以用if 持有物 is 类: 来处理
 	if crop_node:
 		match crop_node.current_state:
 			CropNode.CropState.RIPE:
 				# 收获
-				change_state(LandState.BARREN)
+				change_state(LandState.WEED)
 				InventoryManager.add_item(crop_node.crop, 1)
+				InventoryManager.add_item(crop_node.seed, 2)
 				crop_node.queue_free()
 				crop_node = null
 				return
@@ -77,31 +77,31 @@ func _click_on_land():
 		LandState.PLOWED:
 			change_state(LandState.DRY)
 		LandState.DRY:
-			#TODO:按初期的设想好像是干土地也可以种种子，这里还没有做切换工具的功能，之后需要改一下逻辑
-			#如果需要种植就调用_plant(crop_data:Crop)就好，把持有物传进去
 			if Global.current_holding_item.item.name == '水壶':
 				change_state(LandState.WATERED)#这里目前只浇水，为了测试方便
 		LandState.WATERED:
-			exp_point = 0#浇水
-			if !crop_node and Global.current_holding_item.item.name.contains('种子'):
-				_plant(Global.get_crop_from_seed(Global.current_holding_item.item.name))
+			exp_point = 0 #浇水
+			if !crop_node and Global.current_holding_item.item is Seed and Global.current_holding_item.count > 0:
+				_plant(Global.get_crop_from_seed(Global.current_holding_item.item.name), Global.current_holding_item.item)
+				Global.current_holding_item.count -= 1
 
 func _dry():
 	change_state(LandState.DRY)
 
-func _plant(crop_data:Crop):
+func _plant(crop_data:Crop, seed_data: Seed):
 	#调用这个种植作物
 	land_data.crop = crop_data
 	crop_node = CROP.instantiate()
 	crop_node.crop = crop_data
+	crop_node.seed = seed_data
 	add_child(crop_node)
 
 func _init_land():
 	var index = get_parent().get_children().find(self)
 	land_data = SaveManager.save_data.lands[index]
 	change_state(land_data.current_state)
-	if land_data.crop:
-		_plant(land_data.crop)
+	if land_data.crop and land_data.seed:
+		_plant(land_data.crop, land_data.seed)
 
 func _recalculate(period):
 	_init_land()

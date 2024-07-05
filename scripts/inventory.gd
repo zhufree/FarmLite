@@ -73,7 +73,13 @@ func get_action_slot_info(action:StringName) -> SlotData:
 		"tool_e": InventoryManager.inventory[14],
 		"tool_r": InventoryManager.inventory[15],
 	}[action]
-	Global.current_holding_item = choose_slot_data
+	if Global.current_holding_item == choose_slot_data:
+		Global.current_holding_item = null
+		Input.set_custom_mouse_cursor(null)
+	else:
+		Global.current_holding_item = choose_slot_data
+		var atlas_texture = choose_slot_data.item.icon
+		set_cursor_icon(atlas_texture)
 	var choose_slot_node = {
 		"tool_q": slot_nodes[12],
 		"tool_w": slot_nodes[13],
@@ -85,3 +91,23 @@ func get_action_slot_info(action:StringName) -> SlotData:
 	choose_slot_node.on_choose()
 	return choose_slot_data
 
+func set_cursor_icon(atlas_texture: AtlasTexture):
+	var source_texture = atlas_texture.atlas
+	var region = atlas_texture.region
+	# 创建一个新的 Image 并从 AtlasTexture 中提取数据
+	var image = Image.new()
+	image = image.create(region.size.x, region.size.y, false, Image.FORMAT_RGBA8)
+
+	# 从源纹理中提取相应的区域
+	var buffer_image = source_texture.get_image()
+	image.blit_rect(buffer_image, Rect2(region.position, region.size), Vector2.ZERO)
+
+	# 调整 Image 大小
+	var new_width = region.size.x * 2  # 放大两倍
+	var new_height = region.size.y * 2  # 放大两倍
+	image.resize(new_width, new_height)
+
+	# 创建一个新的 ImageTexture
+	var cursor_texture = ImageTexture.new()
+	cursor_texture = ImageTexture.create_from_image(image)
+	Input.set_custom_mouse_cursor(cursor_texture)
