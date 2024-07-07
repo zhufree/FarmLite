@@ -66,23 +66,24 @@ func _click_on_land():
 				crop_node.queue_free()
 				crop_node = null
 				return
-	match current_state:
-		LandState.WEED:
-			if Global.current_holding_item.item.name == '镰刀':
-				change_state(LandState.BARREN)
-		LandState.BARREN:
-			if Global.current_holding_item.item.name == '锄头':
-				change_state(LandState.PLOWED)
-		LandState.PLOWED:
-			change_state(LandState.DRY)
-		LandState.DRY:
-			if Global.current_holding_item.item.name == '水壶':
-				change_state(LandState.WATERED)#这里目前只浇水，为了测试方便
-		LandState.WATERED:
-			exp_point = 0 #浇水
-			if !crop_node and Global.current_holding_item.item is Seed and Global.current_holding_item.count > 0:
-				_plant(Global.get_crop_from_seed(Global.current_holding_item.item.name), Global.current_holding_item.item)
-				Global.current_holding_item.count -= 1
+	if Global.current_holding_item:
+		match current_state:
+			LandState.WEED:
+				if Global.current_holding_item.item.name == '镰刀':
+					change_state(LandState.BARREN)
+			LandState.BARREN:
+				if Global.current_holding_item.item.name == '锄头':
+					change_state(LandState.PLOWED)
+			LandState.PLOWED:
+				change_state(LandState.DRY)
+			LandState.DRY:
+				if Global.current_holding_item.item.name == '水壶':
+					change_state(LandState.WATERED) #这里目前只浇水，为了测试方便
+			LandState.WATERED:
+				exp_point = 0 #浇水
+				if !crop_node and Global.current_holding_item.item is Seed and Global.current_holding_item.count > 0:
+					_plant(Global.get_crop_from_seed(Global.current_holding_item.item.name), Global.current_holding_item.item)
+					Global.current_holding_item.count -= 1
 
 func _dry():
 	change_state(LandState.DRY)
@@ -109,10 +110,10 @@ func _recalculate(period):
 	if exp_overflow >= 0:
 		_dry()
 	else:
-		exp_overflow = 0#初始化一下，不做也行
-	if crop_node:#如果种植了
+		exp_overflow = 0 #初始化一下，不做也行
+	if crop_node: #如果种植了
 		crop_node.last_record_exp = land_data.crop_last_record_exp
-		crop_node.recalculate(period-exp_overflow,exp_overflow)#运进去2倍经验的时间和1倍经验的时间
+		crop_node.recalculate(period-exp_overflow,exp_overflow) #运进去2倍经验的时间和1倍经验的时间
 
 func save():
 	land_data.position = position

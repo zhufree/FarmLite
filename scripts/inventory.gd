@@ -64,7 +64,7 @@ func hide_storage() -> void:
 		slot.hide()
 	size.y = 28
 	position.y = 183
-	
+
 func get_action_slot_info(action:StringName) -> SlotData:
 	var choose_slot_data =  {
 		"tool_q": InventoryManager.inventory[12],
@@ -94,19 +94,19 @@ func set_cursor_icon(atlas_texture: AtlasTexture):
 	var source_texture = atlas_texture.atlas
 	var region = atlas_texture.region
 	# 创建一个新的 Image 并从 AtlasTexture 中提取数据
-	var image = Image.new()
-	image = image.create(region.size.x, region.size.y, false, Image.FORMAT_RGBA8)
+	var image = Image.create(region.size.x, region.size.y, false, Image.FORMAT_RGBA8)
 
 	# 从源纹理中提取相应的区域
 	var buffer_image = source_texture.get_image()
 	image.blit_rect(buffer_image, Rect2(region.position, region.size), Vector2.ZERO)
 
 	# 调整 Image 大小
-	var new_width = region.size.x * 2  # 放大两倍
-	var new_height = region.size.y * 2  # 放大两倍
+	var new_width = region.size.x * 1.5 # 放大1.5倍
+	var new_height = region.size.y * 1.5  # 放大1.5倍
 	image.resize(new_width, new_height)
 
 	# 创建一个新的 ImageTexture
 	var cursor_texture = ImageTexture.new()
 	cursor_texture = ImageTexture.create_from_image(image)
-	Input.set_custom_mouse_cursor(cursor_texture)
+	var hotpot = Vector2(new_width/2.0, new_height/2.0)
+	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, hotpot)

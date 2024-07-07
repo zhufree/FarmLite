@@ -47,7 +47,6 @@ func _on_button_pressed():
 	for key in Global.tools_resource:
 		InventoryManager.add_item(Global.tools_resource[key], 1)
 
-
 var slot_scene = preload("res://scenes/inventory/slot.tscn")
 func _on_inventory_item_grabbed(item: SlotData):
 	grab_slot = slot_scene.instantiate()

@@ -12,7 +12,6 @@ func _ready():
 	load_resources_from_folder("res://assets/tools_resource/", tools_resource)
 	load_resources_from_folder("res://assets/seeds_resource/", seeds_resource)
 
-
 func get_crop_from_seed(seed_name: String) -> Resource:
 	var cropname = seed_name.substr(0, seed_name.length() - 2)
 	for crop in crops_resource.values():
@@ -20,7 +19,6 @@ func get_crop_from_seed(seed_name: String) -> Resource:
 			return crop
 	return null
 
-	
 func load_resources_from_folder(folder_path: String, target_dict: Dictionary):
 	var dir = DirAccess.open(folder_path)
 	if dir:

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=34 format=3 uid="uid://8ab8lfq4ojqd"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=36 format=3 uid="uid://8u2hoqp5xd0i"]
 
 [ext_resource type="Resource" uid="uid://botgl5fwwgou6" path="res://assets/seeds_resource/carrot_seed.tres" id="1_132uu"]
 [ext_resource type="Script" path="res://scripts/slot_data.gd" id="2_6dnpa"]
@@ -15,18 +15,20 @@
 [ext_resource type="Resource" uid="uid://b65s1758yf151" path="res://assets/tools_resource/kettle.tres" id="9_li0t8"]
 [ext_resource type="Resource" uid="uid://ccvnchdnn5a6" path="res://assets/tools_resource/shovel.tres" id="10_f42v6"]
 [ext_resource type="Resource" uid="uid://dobhrsyhj8vbv" path="res://assets/tools_resource/sickle.tres" id="11_75p60"]
+[ext_resource type="Resource" uid="uid://b8ltv5bvqhq1t" path="res://assets/crops_resource/potato.tres" id="14_taip7"]
+[ext_resource type="Resource" uid="uid://dveuymree2d6o" path="res://assets/crops_resource/onion.tres" id="15_ey2l0"]
 
-[sub_resource type="Resource" id="Resource_qdy1h"]
+[sub_resource type="Resource" id="Resource_q6x8q"]
 script = ExtResource("2_6dnpa")
 index = 0
-item = ExtResource("3_wmhao")
-count = 2
+item = ExtResource("4_2wsjb")
+count = 0
 
 [sub_resource type="Resource" id="Resource_hmipd"]
 script = ExtResource("2_6dnpa")
 index = 1
 item = ExtResource("7_6kpqd")
-count = 2
+count = 4
 
 [sub_resource type="Resource" id="Resource_8sw4c"]
 script = ExtResource("2_6dnpa")
@@ -44,7 +46,7 @@ count = 2
 script = ExtResource("2_6dnpa")
 index = 4
 item = ExtResource("6_fndwr")
-count = 2
+count = 4
 
 [sub_resource type="Resource" id="Resource_jwq3h"]
 script = ExtResource("2_6dnpa")
@@ -64,10 +66,11 @@ index = 7
 item = ExtResource("9_6l212")
 count = 6
 
-[sub_resource type="Resource" id="Resource_6m4n0"]
+[sub_resource type="Resource" id="Resource_kt2s5"]
 script = ExtResource("2_6dnpa")
 index = 8
-count = -1
+item = ExtResource("14_taip7")
+count = 2
 
 [sub_resource type="Resource" id="Resource_cjcqi"]
 script = ExtResource("2_6dnpa")
@@ -102,33 +105,33 @@ index = 14
 item = ExtResource("9_li0t8")
 count = 1
 
-[sub_resource type="Resource" id="Resource_q6x8q"]
+[sub_resource type="Resource" id="Resource_54uv5"]
 script = ExtResource("2_6dnpa")
 index = 15
-item = ExtResource("4_2wsjb")
-count = 2
+item = ExtResource("3_wmhao")
+count = 0
 
 [sub_resource type="Resource" id="Resource_vsge0"]
 script = ExtResource("3_3d6up")
-crop = ExtResource("9_6l212")
-seed = ExtResource("1_132uu")
+crop = ExtResource("15_ey2l0")
+plant_seed = ExtResource("6_fndwr")
 current_state = 4
-land_last_record_exp = 881
-crop_last_record_exp = 1762
+land_last_record_exp = 0
+crop_last_record_exp = 0
 position = Vector2(135, 71)
 
 [sub_resource type="Resource" id="Resource_ktbdi"]
 script = ExtResource("3_3d6up")
-crop = ExtResource("9_6l212")
-seed = ExtResource("1_132uu")
+crop = ExtResource("15_ey2l0")
+plant_seed = ExtResource("7_6kpqd")
 current_state = 4
-land_last_record_exp = 923
-crop_last_record_exp = 1846
+land_last_record_exp = 0
+crop_last_record_exp = 0
 position = Vector2(99, 71)
 
 [resource]
 script = ExtResource("4_g7kjk")
-last_record_system_time_unix = 1720175051
-last_record_global_time_unix = 62340354
-inventory = Array[ExtResource("2_6dnpa")]([SubResource("Resource_qdy1h"), SubResource("Resource_hmipd"), SubResource("Resource_8sw4c"), SubResource("Resource_cjk1y"), SubResource("Resource_vx8nl"), SubResource("Resource_jwq3h"), SubResource("Resource_himlm"), SubResource("Resource_kdbvn"), SubResource("Resource_6m4n0"), SubResource("Resource_cjcqi"), SubResource("Resource_xt35e"), SubResource("Resource_dhjjs"), SubResource("Resource_y7kuf"), SubResource("Resource_wl5fm"), SubResource("Resource_uvrwe"), SubResource("Resource_q6x8q")])
+last_record_system_time_unix = 1720355044
+last_record_global_time_unix = 73528075
+inventory = Array[ExtResource("2_6dnpa")]([SubResource("Resource_q6x8q"), SubResource("Resource_hmipd"), SubResource("Resource_8sw4c"), SubResource("Resource_cjk1y"), SubResource("Resource_vx8nl"), SubResource("Resource_jwq3h"), SubResource("Resource_himlm"), SubResource("Resource_kdbvn"), SubResource("Resource_kt2s5"), SubResource("Resource_cjcqi"), SubResource("Resource_xt35e"), SubResource("Resource_dhjjs"), SubResource("Resource_y7kuf"), SubResource("Resource_wl5fm"), SubResource("Resource_uvrwe"), SubResource("Resource_54uv5")])
 lands = Array[ExtResource("3_3d6up")]([SubResource("Resource_vsge0"), SubResource("Resource_ktbdi")])

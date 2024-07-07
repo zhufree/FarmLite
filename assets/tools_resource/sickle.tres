@@ -19,6 +19,6 @@ region = Rect2(0, 64, 64, 16)
 [resource]
 script = ExtResource("1_7mr6o")
 name = "镰刀"
-description = "收割作物。"
+description = "收割作物或割除杂草。"
 icon = SubResource("AtlasTexture_lcnd7")
 sprite = SubResource("AtlasTexture_p4oq0")
