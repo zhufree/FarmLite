@@ -26,7 +26,6 @@ func update_item_UI():
 		slot_nodes.append(new_slot_node)
 		grid_container.add_child(new_slot_node)
 
-
 func on_item_clicked(slot: SlotData):
 	if grabbed_slot == null and slot.item:
 		# grab item

@@ -55,7 +55,6 @@ func _on_texture_rect_gui_input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			_click_on_land()
 
-
 func _click_on_land():
 	if crop_node:
 		match crop_node.current_state:
@@ -63,7 +62,7 @@ func _click_on_land():
 				# 收获
 				change_state(LandState.WEED)
 				InventoryManager.add_item(crop_node.crop, 1)
-				InventoryManager.add_item(crop_node.seed, 2)
+				InventoryManager.add_item(crop_node.plant_seed, 2)
 				crop_node.queue_free()
 				crop_node = null
 				return
@@ -93,15 +92,15 @@ func _plant(crop_data:Crop, seed_data: Seed):
 	land_data.crop = crop_data
 	crop_node = CROP.instantiate()
 	crop_node.crop = crop_data
-	crop_node.seed = seed_data
+	crop_node.plant_seed = seed_data
 	add_child(crop_node)
 
 func _init_land():
 	var index = get_parent().get_children().find(self)
 	land_data = SaveManager.save_data.lands[index]
 	change_state(land_data.current_state)
-	if land_data.crop and land_data.seed:
-		_plant(land_data.crop, land_data.seed)
+	if land_data.crop and land_data.plant_seed:
+		_plant(land_data.crop, land_data.plant_seed)
 
 func _recalculate(period):
 	_init_land()
