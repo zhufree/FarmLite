@@ -9,6 +9,7 @@ signal item_grabbed(item: SlotData)
 signal item_exchanged()
 var slot_scene = preload("res://scenes/inventory/slot.tscn")
 var grabbed_slot = null
+var is_open = true
 
 func _ready():
 	InventoryManager.update_inventory_UI.connect(update_item_UI)
@@ -25,6 +26,7 @@ func update_item_UI():
 		new_slot_node.add_to_group('Slot')
 		slot_nodes.append(new_slot_node)
 		grid_container.add_child(new_slot_node)
+
 
 func on_item_clicked(slot: SlotData):
 	if grabbed_slot == null and slot.item:
@@ -55,6 +57,7 @@ func show_storage() -> void:
 		slot.show()
 	size.y = 94
 	position.y = 117
+	is_open = true
 
 func hide_storage() -> void:
 	#var storage_slots:Array[Node] = get_tree().get_nodes_in_group("StorageSlots")
@@ -64,6 +67,7 @@ func hide_storage() -> void:
 		slot.hide()
 	size.y = 28
 	position.y = 183
+	is_open = false
 
 func get_action_slot_info(action:StringName) -> SlotData:
 	var choose_slot_data =  {

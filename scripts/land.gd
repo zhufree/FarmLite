@@ -12,10 +12,10 @@ const CROP = preload("res://scenes/crop.tscn")
 const MAX_EXP = 86400 #土的干涸时间是游戏时间1天
 
 var land_data = LandData.new()
-var crop_node:CropNode = null
-var current_state:LandState = LandState.WEED
-var exp_point:int = 0
-var planted:bool = false
+var crop_node: CropNode = null
+var current_state: LandState = LandState.WEED
+var exp_point: int = 0
+var planted: bool = false
 
 @onready var texture_rect = $TextureRect
 
@@ -59,12 +59,7 @@ func _click_on_land():
 	if crop_node:
 		match crop_node.current_state:
 			CropNode.CropState.RIPE:
-				# 收获
-				change_state(LandState.WEED)
-				InventoryManager.add_item(crop_node.crop, 1)
-				InventoryManager.add_item(crop_node.plant_seed, 2)
-				crop_node.queue_free()
-				crop_node = null
+				_harvest()
 				return
 	if Global.current_holding_item:
 		match current_state:
@@ -83,7 +78,10 @@ func _click_on_land():
 				exp_point = 0 #浇水
 				if !crop_node and Global.current_holding_item.item is Seed and Global.current_holding_item.count > 0:
 					_plant(Global.get_crop_from_seed(Global.current_holding_item.item.name), Global.current_holding_item.item)
-					Global.current_holding_item.count -= 1
+					InventoryManager.remove_item(Global.current_holding_item, 1)
+					if Global.current_holding_item.count == 0:
+						Global.current_holding_item = null
+						Input.set_custom_mouse_cursor(null)
 
 func _dry():
 	change_state(LandState.DRY)
@@ -91,11 +89,22 @@ func _dry():
 func _plant(crop_data:Crop, seed_data: Seed):
 	#调用这个种植作物
 	land_data.crop = crop_data
+	land_data.plant_seed = seed_data
 	crop_node = CROP.instantiate()
 	crop_node.crop = crop_data
 	crop_node.plant_seed = seed_data
 	add_child(crop_node)
 
+func _harvest():
+	InventoryManager.add_item(crop_node.crop, 1)
+	InventoryManager.add_item(crop_node.plant_seed, 2)
+	crop_node.queue_free()
+	crop_node = null
+	land_data.crop = null
+	land_data.plant_seed = null
+	change_state(LandState.WEED)
+	
+	
 func _init_land():
 	var index = get_parent().get_children().find(self)
 	land_data = SaveManager.save_data.lands[index]
