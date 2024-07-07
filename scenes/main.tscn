@@ -648,7 +648,9 @@ offset_right = 282.0
 offset_bottom = 192.0
 theme_override_fonts/font = ExtResource("3_pvce2")
 theme_override_font_sizes/font_size = 8
-text = "Press B to close the backpack"
+text = "Press B to close the backpack
+PressQ,W,E,D to use the item
+"
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("1_qjv64")]
 offset_left = 5.0
